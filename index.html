@@ -8,53 +8,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)</title>
-  <meta name="description" content="Staking Polygon (POL) guide (2026): how Polygon staking works, rewards and real yield, APY vs APR, how to stake step-by-step, validator list criteria, minimum POL, calculator framework, best practices, risks, safety checks, comparisons vs liquid staking, and troubleshooting. Includes KPIs, runbook, and a deep FAQ.">
+  <title>Avalanche Cross Chain Bridge — Bridge to/from Avalanche, Supported Chains, Fees, C-Chain, Core, Security & Troubleshooting (2026)</title>
+  <meta name="description" content="Avalanche Cross Chain Bridge guide (2026): how to bridge to/from Avalanche across chains safely using Core, supported chains/assets, C-Chain basics, real fee model (origin gas + bridge fee + destination gas), timing expectations, security best practices, explorers, and troubleshooting. Includes runbook, tables, checklists, and a deep FAQ.">
   <meta name="author" content="Crypto Finance Experts">
-  <link rel="canonical" href="https://staking-polygon.example.com/">
+  <link rel="canonical" href="REPLACE_CANONICAL" />
 
-  <!-- Favicon (use your local file) -->
-  <link rel="icon" type="image/png" href="polygon-logo-png_seeklogo-527156.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Avalanche_logo.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://staking-polygon.example.com/">
-  <meta property="og:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="og:description" content="Practical Staking Polygon (POL) guide: rewards, APY/APR, validator selection, safety checklist, calculator framework, and troubleshooting.">
-  <meta property="og:image" content="cover.png">
+  <meta property="og:url" content="REPLACE_CANONICAL">
+  <meta property="og:title" content="Avalanche Cross Chain Bridge — Supported Chains, Fees, Core & Troubleshooting (2026)">
+  <meta property="og:description" content="Practical Avalanche cross-chain bridging guide: Core flow, supported routes, fees, timing, explorer checks, and troubleshooting.">
+  <meta property="og:image" content="avax.png">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://staking-polygon.example.com/">
-  <meta property="twitter:title" content="Staking Polygon (POL) — Rewards, APY/APR, Validators, Calculator, Safety &amp; Troubleshooting (2026)">
-  <meta property="twitter:description" content="Deep Polygon staking guide: yield drivers, validator criteria, minimum POL, best practices, and risks in 2025–2026.">
-  <meta property="twitter:image" content="cover.png">
+  <meta property="twitter:url" content="REPLACE_CANONICAL">
+  <meta property="twitter:title" content="Avalanche Cross Chain Bridge — Bridge Routes, Fees, Safety & Fixes (2026)">
+  <meta property="twitter:description" content="Deep guide: how to bridge across chains with Avalanche, fee stack, timing, safety checklist, explorers, and FAQs.">
+  <meta property="twitter:image" content="avax.png">
 
   <style>
     :root{
-      /* Black–Purple Theme */
-      --primary:#A855F7;       /* purple-500 */
-      --primary-600:#9333EA;   /* purple-600 */
-      --primary-700:#7E22CE;   /* purple-700 */
-      --accent:#22D3EE;        /* cyan accent for tiny highlights */
+      /* Avalanche-inspired Red Theme */
+      --primary:#E84142;
+      --primary-600:#D63637;
+      --primary-700:#B92A2B;
+      --accent:#FF6B6B;
 
-      --ink:#F8FAFC;           /* near-white text */
-      --muted:#A1A1AA;         /* zinc-400 */
-      --muted-2:#71717A;       /* zinc-500 */
+      --ink:#0F172A;
+      --muted:#475569;
+      --muted-2:#64748B;
 
-      --bg:#070712;            /* deep black/purple */
-      --panel:#0B0B18;
-      --panel-2:#0F0F24;
-      --line:rgba(255,255,255,.10);
+      --bg:#FFF6F6;
+      --panel:#FFFFFF;
+      --panel-2:#FFF9F9;
+      --line:rgba(15,23,42,.10);
 
-      --ok:#22C55E;
+      --ok:#16A34A;
       --warn:#F59E0B;
-      --error:#EF4444;
+      --error:#DC2626;
 
-      --shadow: 0 18px 44px rgba(0,0,0,.55);
+      --shadow: 0 18px 44px rgba(2,6,23,.12);
       --radius:14px;
-      --radius-sm:10px;
       --radius-lg:22px;
+
       --gap:1.25rem;
       --gap-lg:2rem;
     }
@@ -66,10 +66,10 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
       color:var(--muted);
       background:
-        radial-gradient(900px 600px at 15% 0%, rgba(168,85,247,.22), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(34,211,238,.10), transparent 60%),
-        radial-gradient(900px 600px at 55% 85%, rgba(126,34,206,.16), transparent 60%),
-        linear-gradient(180deg, #050510 0%, #070712 45%, #050510 100%);
+        radial-gradient(900px 600px at 12% 0%, rgba(232,65,66,.14), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(255,107,107,.10), transparent 60%),
+        radial-gradient(900px 600px at 55% 85%, rgba(185,42,43,.10), transparent 60%),
+        linear-gradient(180deg, #FFFFFF 0%, var(--bg) 45%, #FFFFFF 100%);
       line-height:1.65;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -93,19 +93,23 @@
       padding-top:.6rem;
       border-top:1px solid var(--line);
     }
-    h3{font-size:clamp(1.05rem,2.2vw,1.3rem); color:#EDE9FE}
+    h3{
+      font-size:clamp(1.05rem,2.2vw,1.3rem);
+      color:#7F1D1D;
+      margin-top:1rem;
+    }
 
     p,li,td,th{font-size:1rem}
-    .lead{font-size:1.125rem; color:#E5E7EB}
+    .lead{font-size:1.125rem; color:#0F172A}
     .muted{color:var(--muted)}
     .muted-2{color:var(--muted-2)}
 
     header.hero{
       padding: clamp(2rem,6vw,4rem) 0;
       background:
-        radial-gradient(700px 420px at 18% 10%, rgba(168,85,247,.25), transparent 60%),
-        radial-gradient(700px 420px at 90% 20%, rgba(34,211,238,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 55%);
+        radial-gradient(700px 420px at 18% 10%, rgba(232,65,66,.18), transparent 60%),
+        radial-gradient(700px 420px at 90% 20%, rgba(255,107,107,.12), transparent 60%),
+        linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,0) 55%);
       border-bottom:1px solid var(--line);
     }
 
@@ -117,7 +121,7 @@
     }
 
     .hero-card{
-      background: linear-gradient(180deg, rgba(15,15,36,.82), rgba(11,11,24,.68));
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,249,249,.88));
       border:1px solid var(--line);
       border-radius:var(--radius-lg);
       padding:clamp(1rem,3vw,1.75rem);
@@ -125,65 +129,175 @@
       backdrop-filter: blur(8px);
     }
 
-    .brand-row{display:flex; align-items:center; gap:.9rem; margin-bottom:.75rem}
+    .brand-row{
+      display:flex; align-items:center; gap:.9rem;
+      margin-bottom:.75rem
+    }
     .brand-logo{
       width:54px;
       height:54px;
       border-radius:14px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
+      background:rgba(232,65,66,.06);
       padding:.35rem;
       object-fit:contain;
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
       flex:0 0 auto;
     }
 
+    /* CTA */
+    .cta-center{
+      display:flex;
+      justify-content:center;
+      margin-top: 1.1rem;
+    }
     .cta{
-      display:inline-block;
-      margin-top:1rem;
-      background:linear-gradient(180deg, var(--primary), var(--primary-700));
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.65rem;
+      background: linear-gradient(180deg, var(--primary), var(--primary-700));
       color:white;
-      padding:.9rem 1.4rem;
-      border-radius:12px;
-      font-weight:900;
+      padding:1.08rem 2.35rem;
+      border-radius:16px;
+      font-weight:950;
       letter-spacing:.2px;
-      box-shadow:0 14px 32px rgba(168,85,247,.28);
-      border:1px solid rgba(255,255,255,.10);
+      font-size:1.10rem;
+      border:1px solid rgba(255,255,255,.28);
+      box-shadow:
+        0 18px 44px rgba(232,65,66,.22),
+        0 0 0 6px rgba(232,65,66,.10);
+      transform: translateZ(0);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      text-decoration:none;
     }
-    .cta:hover{filter:brightness(1.05); text-decoration:none}
-    .cta.secondary{
-      background:transparent;
-      border:1px solid var(--line);
-      color:var(--ink);
-      margin-left:.75rem;
-      box-shadow:none;
+    .cta:hover{
+      text-decoration:none;
+      filter:brightness(1.05);
+      transform: translateY(-2px);
+      box-shadow:
+        0 22px 52px rgba(232,65,66,.26),
+        0 0 0 8px rgba(232,65,66,.12);
     }
+    .cta:active{transform: translateY(0px); filter:brightness(.98);}
 
     .note{
       border-left:3px solid var(--primary);
-      padding:.75rem 1rem;
-      background:rgba(168,85,247,.10);
-      border-radius:10px;
-      color:#E5E7EB;
+      padding:.85rem 1rem;
+      background:rgba(232,65,66,.06);
+      border-radius:12px;
+      color:#0F172A;
+      margin-top:1rem;
     }
 
+    /* HERO IMAGE */
     .hero-media{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top: 18px;
-    }
-    .hero-img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      max-height:520px;
+      position:relative;
       border-radius:var(--radius-lg);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      overflow:hidden;
       box-shadow:var(--shadow);
-      padding:.25rem;
+      background:rgba(255,255,255,.75);
+    }
+    .hero-media::before{
+      content:"";
+      display:block;
+      padding-top:56.25%;
+    }
+    .hero-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    section.step-guide{padding: clamp(2rem,6vw,3.5rem) 0}
+    .steps{display:grid; gap:var(--gap); grid-template-columns:1fr;}
+    .step{
+      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,249,249,.88));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1.2rem;
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .step:hover{transform:translateY(-4px); box-shadow:0 18px 34px rgba(2,6,23,.14)}
+    .step .icon{
+      width:54px;height:54px;border-radius:50%;
+      display:inline-grid; place-items:center;
+      background:rgba(232,65,66,.10);
+      margin-bottom:.6rem;
+      color:#7F1D1D;
+      font-weight:950;
+      border:1px solid rgba(15,23,42,.10);
+    }
+
+    main .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,249,249,.88));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1.25rem;
+      margin:1.25rem 0;
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
+    }
+
+    .grid-2{display:grid; gap:var(--gap); grid-template-columns:1fr;}
+    .toc{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(232,65,66,.06), rgba(255,255,255,.75));
+      border-radius:var(--radius);
+      padding:1rem;
+    }
+    .toc strong{color:#0F172A}
+    .toc ul{margin:.5rem 0 0; padding-left:1.1rem}
+    .toc li{margin:.25rem 0}
+    .toc a{font-weight:950}
+
+    table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
+    th,td{padding:.9rem; border-bottom:1px solid var(--line)}
+    th{
+      background:rgba(232,65,66,.08);
+      color:#0F172A;
+      text-align:left
+    }
+    tr.highlight{background:rgba(232,65,66,.05)}
+    tr:hover{background:rgba(2,6,23,.02)}
+
+    code, .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .inline-code{
+      display:inline-block;
+      padding:.15rem .35rem;
+      border-radius:8px;
+      border:1px solid var(--line);
+      background:rgba(2,6,23,.03);
+      color:#0F172A;
+      font-weight:900;
+    }
+
+    .callout-grid{
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns:1fr;
+      margin-top: .75rem;
+    }
+    .mini{
+      background:rgba(2,6,23,.02);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1rem;
+    }
+    .kpi-badges{
+      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.6rem;
+    }
+    .kpi-badges span{
+      border:1px solid rgba(232,65,66,.20);
+      background:rgba(232,65,66,.06);
+      color:#0F172A;
+      padding:.3rem .55rem;
+      border-radius:999px;
+      font-weight:950;
+      font-size:.9rem;
     }
 
     .content-media{
@@ -191,94 +305,42 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      margin-top: 14px;
+      margin-top:14px;
+
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.75);
+      padding:12px;
     }
     .content-img{
       width:100%;
       height:auto;
-      object-fit:contain;
       max-height:420px;
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-      box-shadow:var(--shadow);
-      padding:.25rem;
+      object-fit:contain;
+      display:block;
     }
 
-    section.step-guide{padding: clamp(2rem,6vw,3.5rem) 0}
-    .steps{display:grid; gap:var(--gap); grid-template-columns:1fr;}
-    .step{
-      background:linear-gradient(180deg, rgba(15,15,36,.78), rgba(11,11,24,.62));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1.2rem;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-    .step:hover{transform:translateY(-4px); box-shadow:0 18px 34px rgba(0,0,0,.55)}
-    .step .icon{
-      width:54px;height:54px;border-radius:50%;
-      display:inline-grid; place-items:center;
-      background:rgba(168,85,247,.18);
-      margin-bottom:.6rem;
-      color:#EDE9FE;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    main .card{
-      background:linear-gradient(180deg, rgba(15,15,36,.70), rgba(11,11,24,.58));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1.25rem;
-      margin:1.25rem 0;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
-    }
-
-    .grid-2{display:grid; gap:var(--gap); grid-template-columns:1fr;}
     .pillbar{
       display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.75rem 0 0;
+      margin:.9rem 0 0;
     }
     .pill{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      padding:.4rem .65rem;
+      border:1px solid rgba(232,65,66,.22);
+      background:rgba(232,65,66,.06);
+      padding:.45rem .7rem;
       border-radius:999px;
-      font-weight:800;
-      color:#E5E7EB;
+      font-weight:950;
+      color:#0F172A;
       box-shadow:none;
     }
 
-    .toc{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
-      border-radius:var(--radius);
-      padding:1rem;
-    }
-    .toc strong{color:#F1F5F9}
-    .toc ul{margin:.5rem 0 0; padding-left:1.1rem}
-    .toc li{margin:.25rem 0}
-    .toc a{font-weight:800}
-
-    table{width:100%; border-collapse:collapse; overflow:hidden; border-radius:12px}
-    th,td{padding:.9rem; border-bottom:1px solid var(--line)}
-    th{
-      background:rgba(168,85,247,.10);
-      color:#F8FAFC;
-      text-align:left
-    }
-    tr.highlight{background:rgba(168,85,247,.08)}
-    tr:hover{background:rgba(255,255,255,.03)}
-
-    .ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--error)}
-
     .eeat{
-      background:linear-gradient(180deg, rgba(168,85,247,.10), rgba(255,255,255,.02));
+      background:linear-gradient(180deg, rgba(232,65,66,.06), rgba(255,255,255,.75));
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:1.25rem;
-      box-shadow: 0 12px 26px rgba(0,0,0,.45);
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
     }
 
     .faq-item{border-bottom:1px solid var(--line); padding: .9rem 0}
@@ -290,56 +352,9 @@
     .faq-button h3{margin:0; font-weight:950}
     .faq-content{max-height:0; overflow:hidden; transition:max-height .25s ease}
     .faq-content.open{padding-top:.6rem}
-    .faq-plus{font-weight:950; color:#EDE9FE}
-
-    .cta-center{
-      display:flex;
-      justify-content:center;
-      margin-top: 1rem;
-    }
-    .cta-center .cta{margin-top:0}
-
-    .badge-row{
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      margin:.9rem 0 0;
-    }
-    .badge{
-      border:1px solid var(--line);
-      background:rgba(34,211,238,.06);
-      padding:.35rem .6rem;
-      border-radius:999px;
-      font-weight:900;
-      color:#E5E7EB;
-    }
-
-    .callout-grid{
-      display:grid;
-      gap:var(--gap);
-      grid-template-columns:1fr;
-      margin-top: .75rem;
-    }
-    .mini{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:1rem;
-    }
-    .mini h3{margin-bottom:.35rem}
-    .kpi-badges{
-      display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.5rem;
-    }
-    .kpi-badges span{
-      border:1px solid rgba(168,85,247,.22);
-      background:rgba(168,85,247,.07);
-      color:#EDE9FE;
-      padding:.3rem .55rem;
-      border-radius:999px;
-      font-weight:900;
-      font-size:.9rem;
-    }
+    .faq-plus{font-weight:950; color:#7F1D1D}
 
     @media (min-width: 860px){
-      .hero-grid{grid-template-columns: 1fr;}
       .steps{grid-template-columns: repeat(4, 1fr)}
       .grid-2{grid-template-columns: 1fr 1fr}
       .callout-grid{grid-template-columns: 1fr 1fr}
@@ -353,72 +368,78 @@
   <div class="container hero-grid">
     <div class="hero-card" aria-label="Intro">
       <div class="brand-row">
-        <img class="brand-logo" src="polygon-logo-png_seeklogo-527156.png" alt="Staking Polygon logo">
+        <img class="brand-logo" src="Avalanche_logo.png" alt="Avalanche logo">
         <div>
-          <div class="muted" style="font-weight:900; letter-spacing:.2px;">Operational Guide</div>
-          <div class="muted-2" style="font-size:.95rem;">Rewards • APY/APR • Validators • Calculator • Safety</div>
+          <div class="muted" style="font-weight:950; letter-spacing:.2px;">Operational Guide</div>
+          <div class="muted-2" style="font-size:.95rem;">Cross-Chain • Core • Fees • Routes • Explorers • Troubleshooting</div>
         </div>
       </div>
 
-      <h1>Staking Polygon (POL)</h1>
+      <h1>Avalanche Cross Chain Bridge</h1>
       <p class="lead">
-        This is a practical, security-first guide to <strong>Staking Polygon (POL)</strong>: how staking works end-to-end,
-        what drives rewards, how to compare <strong>APY vs APR</strong>, how to choose validators, how to estimate yield with
-        a calculator framework, and how to avoid the common mistakes that cause lost time (or lost funds).
+        This is a practical, security-first guide to <strong>Avalanche cross-chain bridging</strong> in 2026:
+        how to bridge assets <strong>to/from Avalanche</strong> across common networks using official tooling (Core),
+        how to choose routes based on fees and timing, and how to verify every step with explorers so you don’t lose funds to
+        wrong-network transfers, fake tokens, or phishing UIs.
       </p>
 
-
-      <div class="cta-center">
-        <a href="https://staking-polygon.com/" class="cta" aria-label="Open Polygon Staking (placeholder)">Open Polygon Staking</a>
+      <div class="pillbar" aria-label="Common intents">
+        <span class="pill">Ethereum ↔ Avalanche</span>
+        <span class="pill">C-Chain DeFi</span>
+        <span class="pill">Stables</span>
+        <span class="pill">ETH routes</span>
+        <span class="pill">Explorer verification</span>
       </div>
 
-      <div class="note" style="margin-top:1rem;">
-        <strong>Quick rule:</strong> If you’re staking meaningful size, do a small test delegation first,
-        then scale in. Staking is operational: validator choice, unbonding rules, and wallet hygiene matter.
+      <div class="cta-center">
+        <a href="https://core.app/bridge" class="cta" aria-label="Open Avalanche Cross Chain Bridge" target="_blank" rel="noopener nofollow">
+          Open Avalanche Cross-Chain Bridge
+        </a>
+      </div>
+
+      <div class="note">
+        <strong>Quick rule:</strong> Cross-chain = cross-risk. Always verify:
+        <strong>domain → chain → address → token contract → destination network</strong>. Test small first.
       </div>
     </div>
 
     <div class="hero-media" aria-hidden="true">
-      <!-- First top image -->
-      <img class="hero-img" src="snimok-ekrana-2022-01-25-v-16.10.24.png" alt="Staking Polygon overview visual">
+      <img class="hero-img" src="avax.png" alt="Avalanche Cross Chain Bridge hero image">
     </div>
   </div>
 </header>
 
 <section class="step-guide" aria-labelledby="how-works">
   <div class="container">
-    <h2 id="how-works">Staking Polygon (POL): How the Workflow Works (Choose → Delegate → Earn → Unstake)</h2>
+    <h2 id="how-works">Cross-Chain Bridging Workflow: Choose Route → Quote → Test → Verify → Scale</h2>
     <div class="steps" role="list">
       <article class="step" role="listitem">
         <div class="icon">①</div>
-        <h3>Choose a staking method (native vs liquid staking)</h3>
+        <h3>Choose route (origin → destination)</h3>
         <p>
-          Decide if you want native delegation (more “direct”, but with lock/unbond rules) or liquid staking
-          (more flexibility, but extra smart-contract and peg/liquidity considerations).
+          Decide where you’re starting (Ethereum, another chain) and where you’re landing (usually <strong>Avalanche C-Chain</strong>).
+          Cross-chain is not a swap—pick the correct asset and network pair.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">②</div>
-        <h3>Select validators (the real risk/return lever)</h3>
+        <h3>Quote fees + time (real cost stack)</h3>
         <p>
-          Your validator choice drives uptime risk, slashing exposure, commission drag, and reliability.
-          “Highest APY” is not a strategy if the operator is unstable or opaque.
+          Total cost = origin gas + bridge cost + destination gas. Time depends on confirmations and route complexity.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">③</div>
-        <h3>Delegate and track rewards (net yield matters)</h3>
+        <h3>Test transfer first</h3>
         <p>
-          Rewards are not just “APR”: net yield depends on commission, compounding cadence, and any extra
-          fees/constraints. Track realized outcomes, not only quotes.
+          Do a small transfer to confirm chain selection, destination address, token contract, and wallet display behavior.
         </p>
       </article>
       <article class="step" role="listitem">
         <div class="icon">④</div>
-        <h3>Unstake safely (timelines, claims, and mistakes)</h3>
+        <h3>Verify in explorers, then scale</h3>
         <p>
-          The exit path is part of the plan: understand unbonding delays, claim steps, and how long capital is illiquid.
-          Most “stuck” issues come from missing exit steps or network mismatch.
+          Use explorers as the source of truth. If you can’t verify the destination contract and balance, don’t scale size.
         </p>
       </article>
     </div>
@@ -428,484 +449,416 @@
 <main class="container" role="main">
 
   <section class="card toc" aria-label="Table of Contents">
-    <strong>On this page (Staking Polygon):</strong>
+    <strong>On this page (Avalanche Cross Chain Bridge):</strong>
     <ul>
-      <li><a href="#overview">Staking Polygon overview (what it is &amp; who it’s for)</a></li>
-      <li><a href="#rewards">Polygon staking rewards: what drives yield</a></li>
-      <li><a href="#apy-apr">Polygon staking APY / APR: how to compare correctly</a></li>
-      <li><a href="#how-to">How to stake Polygon (POL): step-by-step tutorial</a></li>
-      <li><a href="#calculator">Polygon staking calculator: estimation framework</a></li>
-      <li><a href="#validators">Polygon validator list: selection checklist</a></li>
-      <li><a href="#minimum">Polygon staking minimum POL required</a></li>
-      <li><a href="#yield">Polygon staking yield: compounding &amp; net return</a></li>
-      <li><a href="#review">Staking Polygon review: legit, trust, and what to watch</a></li>
-      <li><a href="#safety">Is staking Polygon safe? risks &amp; rewards</a></li>
-      <li><a href="#comparison">Staking Polygon comparison vs liquid staking</a></li>
-      <li><a href="#best-practices">Best way to stake Polygon: best practices</a></li>
-      <li><a href="#troubleshooting">Troubleshooting &amp; common issues</a></li>
-      <li><a href="#eeat">Sources &amp; references</a></li>
+      <li><a href="#overview">Overview: what “cross chain bridge” means on Avalanche</a></li>
+      <li><a href="#routes">Common routes & when to use them</a></li>
+      <li><a href="#fees">Fees: the cross-chain cost stack (real model)</a></li>
+      <li><a href="#time">Time: typical expectations by route</a></li>
+      <li><a href="#cchain">Avalanche C-Chain basics (where assets land)</a></li>
+      <li><a href="#assets">Popular assets users bridge (stables, ETH, majors)</a></li>
+      <li><a href="#how-to">How to bridge cross-chain with Core (step-by-step)</a></li>
+      <li><a href="#verify">Verification: explorer checklist</a></li>
+      <li><a href="#safety">Security checklist (phishing, approvals, token contracts)</a></li>
+      <li><a href="#troubleshooting">Troubleshooting: fixes by symptom</a></li>
+      <li><a href="#eeat">Authoritative sources</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </section>
 
   <section class="card" id="overview">
-    <h2>Staking Polygon Overview: What It Is, and Why People Stake POL</h2>
+    <h2>Avalanche Cross Chain Bridge Overview: What It Is</h2>
     <p>
-      <strong>Staking Polygon (POL)</strong> generally means committing POL to help secure network operations (directly or via delegation),
-      earning rewards in return. The trade-off is simple: you exchange liquidity and operational attention
-      (validator selection + rules) for yield and network participation.
+      <strong>Avalanche Cross Chain Bridge</strong> refers to moving assets between Avalanche and other networks (most commonly Ethereum),
+      using a bridge UI that coordinates the cross-chain transaction flow. The core operational goal is simple:
+      get the right asset to the right chain to use Avalanche apps (usually on <strong>C-Chain</strong>)—without
+      getting trapped by wrong networks, wrong tokens, or insufficient gas.
     </p>
 
     <div class="callout-grid" role="list">
       <div class="mini" role="listitem">
-        <h3>Best use-case</h3>
+        <h3>Best for</h3>
         <p class="muted">
-          Long-term holders who want yield and can tolerate lock/unbond timelines.
+          Users who want to move stablecoins or ETH routes into Avalanche DeFi, or return liquidity back to Ethereum.
         </p>
         <div class="kpi-badges">
-          <span>Long-term</span><span>Yield-focused</span><span>Risk-managed</span>
+          <span>DeFi</span><span>Stables</span><span>Liquidity moves</span>
         </div>
       </div>
-
       <div class="mini" role="listitem">
-        <h3>Main constraints</h3>
+        <h3>Primary risk</h3>
         <p class="muted">
-          Unbonding delay, validator/operator risk, and the need for careful wallet hygiene.
+          User error: phishing bridge UI, wrong chain selection, or assuming a ticker = the right contract.
         </p>
         <div class="kpi-badges">
-          <span>Illiquidity</span><span>Operator risk</span><span>Process matters</span>
+          <span>Phishing</span><span>Wrong chain</span><span>Wrong contract</span>
         </div>
       </div>
     </div>
 
-    <div class="note" style="margin-top:1rem;">
-      <strong>Operational truth:</strong> the “best” staking setup is the one you can exit safely.
-      Always plan the unstake path before you stake.
+    <div class="note">
+      <strong>Operational truth:</strong> A “successful bridge” on-chain but “missing funds” in wallet is usually a display issue.
+      Explorers settle the truth.
     </div>
 
     <div class="content-media">
-      <!-- Second image -->
-      <img class="content-img" src="poly2.png" alt="Staking Polygon checklist visual">
+      <img class="content-img" src="avax2.png" alt="Avalanche cross-chain bridge overview image">
     </div>
   </section>
 
-  <section class="card" id="rewards">
-    <h2>Polygon Staking Rewards: What Drives Rewards and Why They Change</h2>
+  <section class="card" id="routes">
+    <h2>Common Cross-Chain Routes Into/Out of Avalanche</h2>
     <p>
-      <strong>Polygon staking rewards</strong> vary over time. Your realized outcome depends on network conditions and
-      your validator’s behavior (commission, uptime, performance), plus how you compound.
-    </p>
-    <ul>
-      <li><strong>Validator commission:</strong> your rewards are reduced by the operator’s cut.</li>
-      <li><strong>Uptime/performance:</strong> instability reduces rewards and can increase risk.</li>
-      <li><strong>Compounding cadence:</strong> auto-compound vs manual compounding changes net APY.</li>
-      <li><strong>Operational fees:</strong> some paths require extra transactions (claim/compound/unstake).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Treat quoted yield as “gross”. Track net yield after commission + fees + missed time (downtime/unbond).
-    </div>
-  </section>
-
-  <section class="card" id="apy-apr">
-    <h2>Polygon Staking APY / APR: How to Compare Without Getting Tricked</h2>
-    <p>
-      <strong>APR</strong> is typically the “simple rate” (no compounding assumption).
-      <strong>APY</strong> includes a compounding assumption (and can be misleading if compounding isn’t realistic or fees are ignored).
+      Most users mean one of these routes when searching “Avalanche cross chain bridge.” Your route determines fees, time, and which gas token you need.
     </p>
 
-    <table aria-label="APY vs APR comparison">
+    <table aria-label="Common bridge routes">
       <thead>
         <tr>
-          <th>Term</th>
-          <th>What it implies</th>
-          <th>Common mistake</th>
+          <th>Route</th>
+          <th>Typical use-case</th>
+          <th>Key requirement</th>
+          <th>Gotcha</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td>APR</td>
-          <td>Simple annual rate (no compounding)</td>
-          <td>Assuming APR = final outcome (it ignores compounding and fees)</td>
+          <td>Ethereum → Avalanche (C-Chain)</td>
+          <td>Move liquidity into Avalanche DeFi</td>
+          <td>ETH for L1 gas + AVAX for C-Chain gas</td>
+          <td>ETH on Avalanche may be a representation; verify contract</td>
         </tr>
         <tr>
-          <td>APY</td>
-          <td>Annualized rate with compounding assumption</td>
-          <td>Believing APY without checking compounding frequency + transaction costs</td>
+          <td>Avalanche (C-Chain) → Ethereum</td>
+          <td>Exit positions back to L1</td>
+          <td>AVAX for gas; often ETH for L1 actions later</td>
+          <td>Ethereum gas can dominate total cost</td>
+        </tr>
+        <tr>
+          <td>Chain X → Avalanche</td>
+          <td>Cheaper entry route (varies)</td>
+          <td>Correct token mapping + destination chain selection</td>
+          <td>Thin liquidity routes can deliver odd token variants</td>
         </tr>
       </tbody>
     </table>
 
     <div class="note">
-      <strong>Quick check:</strong> If compounding requires frequent transactions, fees can erase the “APY gap” for small balances.
+      <strong>Rule:</strong> Cross-chain is not “one universal bridge.” Always confirm the exact origin chain and destination chain in the UI.
+    </div>
+  </section>
+
+  <section class="card" id="fees">
+    <h2>Avalanche Cross Chain Bridge Fees: Real Cost Stack</h2>
+    <p>
+      The real cost of bridging is the sum of three layers. If you ignore one, you’ll under-estimate by a lot.
+    </p>
+
+    <table aria-label="Cross-chain fee stack">
+      <thead>
+        <tr>
+          <th>Fee layer</th>
+          <th>Where you pay it</th>
+          <th>How to reduce it</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Origin chain gas</td>
+          <td>Origin network transaction</td>
+          <td>Bridge during quieter times; avoid re-tries</td>
+        </tr>
+        <tr>
+          <td>Bridge fee / spread (if any)</td>
+          <td>Bridge UI quote</td>
+          <td>Compare routes; avoid sketchy providers</td>
+        </tr>
+        <tr>
+          <td>Destination chain gas</td>
+          <td>Avalanche C-Chain (AVAX) or Ethereum (ETH)</td>
+          <td>Keep gas buffers; batch actions</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Cost discipline:</strong> Bridge once, do multiple actions on the destination chain, then exit. Frequent back-and-forth is the expensive path.
+    </div>
+  </section>
+
+  <section class="card" id="time">
+    <h2>Avalanche Cross Chain Bridge Time: What to Expect</h2>
+    <p>
+      Timing depends on confirmations and route complexity. Most “slow bridge” complaints are actually: low gas settings,
+      congestion on Ethereum, or UI status lag.
+    </p>
+
+    <table aria-label="Time expectations by route">
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>User expectation</th>
+          <th>Reality</th>
+          <th>Best practice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Into Avalanche</td>
+          <td>Minutes</td>
+          <td>Usually fast after origin confirmations</td>
+          <td>Verify destination tx on C-Chain explorer</td>
+        </tr>
+        <tr>
+          <td>Out to Ethereum</td>
+          <td>Fast</td>
+          <td>Can be slower/expensive due to Ethereum gas</td>
+          <td>Plan exits; avoid congested periods</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Rule:</strong> If timing feels wrong, verify both chains in explorers before assuming failure.
+    </div>
+  </section>
+
+  <section class="card" id="cchain">
+    <h2>Avalanche C-Chain Basics (Where Your Bridged Assets Usually Land)</h2>
+    <p>
+      Most EVM assets used in DeFi land on <strong>Avalanche C-Chain</strong>. That means:
+      you need <strong>AVAX</strong> for gas, and you should verify token contracts using a C-Chain explorer.
+    </p>
+
+    <h3>Practical checks</h3>
+    <ul>
+      <li><strong>Network:</strong> wallet must be on Avalanche C-Chain to display and use bridged assets.</li>
+      <li><strong>Gas token:</strong> AVAX pays fees; bridging ETH does not give you gas automatically.</li>
+      <li><strong>Token contract:</strong> verify the receiving token contract (symbol alone is not enough).</li>
+    </ul>
+
+    <div class="note">
+      <strong>Most common failure:</strong> “I received funds but can’t move them.” That’s almost always “no AVAX for gas.”
+    </div>
+  </section>
+
+  <section class="card" id="assets">
+    <h2>Popular Assets People Bridge to Avalanche (Cross-Chain)</h2>
+    <p>
+      These are the most common intents behind “Avalanche cross chain bridge” searches. Always verify which variant/contract you’re receiving.
+    </p>
+
+    <table aria-label="Popular cross-chain bridge assets">
+      <thead>
+        <tr>
+          <th>Asset group</th>
+          <th>Examples</th>
+          <th>Why users bridge it</th>
+          <th>Safety note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Stablecoins</td>
+          <td>USDC / USDT / DAI</td>
+          <td>Trading, lending, collateral</td>
+          <td>Verify token contract + liquidity depth</td>
+        </tr>
+        <tr>
+          <td>ETH routes</td>
+          <td>ETH (representation) / WETH</td>
+          <td>Base liquidity and DeFi routing</td>
+          <td>Confirm wrapper/contract on destination</td>
+        </tr>
+        <tr>
+          <td>Majors</td>
+          <td>WBTC and popular DeFi tokens</td>
+          <td>Portfolio rebalancing</td>
+          <td>Avoid thin/unknown token mappings</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Execution tip:</strong> If you want to trade on Avalanche, bridging a deep stablecoin is often easier than bridging a thin alt.
     </div>
   </section>
 
   <section class="card" id="how-to">
-    <h2>How to Stake Polygon (POL): Tutorial (Clean, Repeatable Workflow)</h2>
+    <h2>How to Use Avalanche Cross Chain Bridge in Core: Step-by-Step</h2>
     <ol>
-      <li><strong>Choose your method:</strong> native staking vs liquid staking (based on your liquidity needs).</li>
-      <li><strong>Prepare wallet hygiene:</strong> verify official URLs, consider hardware wallet for size, keep backups safe.</li>
-      <li><strong>Pick a validator:</strong> assess commission, uptime history, transparency, and operational reputation.</li>
-      <li><strong>Delegate a small test:</strong> verify rewards accrual and that you understand the UI and steps.</li>
-      <li><strong>Scale in:</strong> add stake in tranches to reduce operational mistakes.</li>
-      <li><strong>Track + compound:</strong> decide if compounding is worth it after fees.</li>
-      <li><strong>Plan your exit:</strong> know unbonding/claim rules before you need liquidity.</li>
+      <li><strong>Open the official bridge UI:</strong> <span class="inline-code">core.app/bridge</span> (bookmark it).</li>
+      <li><strong>Connect wallet:</strong> confirm correct account/address.</li>
+      <li><strong>Select origin and destination:</strong> choose your route (e.g., Ethereum → Avalanche).</li>
+      <li><strong>Select asset + amount:</strong> confirm token, chain, and keep gas buffers.</li>
+      <li><strong>Approve (if needed):</strong> prefer limited approvals for high-value wallets.</li>
+      <li><strong>Confirm transaction:</strong> save tx hash(es).</li>
+      <li><strong>Verify on explorers:</strong> origin success + destination arrival.</li>
+      <li><strong>Switch networks:</strong> move wallet to destination chain and confirm token contract.</li>
     </ol>
 
     <div class="note">
-      <strong>Best way to stake Polygon:</strong> stable operational setup beats chasing the highest headline number.
-      Reliability + sane commission + safe process wins.
+      <strong>Best practice:</strong> Keep a mini log: route, asset, amount, origin tx hash, destination tx hash.
     </div>
   </section>
 
-  <section class="card" id="calculator">
-    <h2>Polygon Staking Calculator: A Practical Estimation Framework</h2>
-    <p>
-      A <strong>Polygon staking calculator</strong> should estimate your <em>net</em> outcome (not just a marketing APY).
-      Use this framework:
-    </p>
-
-    <table aria-label="Staking calculator inputs">
-      <thead>
-        <tr>
-          <th>Input</th>
-          <th>Meaning</th>
-          <th>Why it matters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="highlight">
-          <td>Stake amount (POL)</td>
-          <td>Your principal</td>
-          <td>Determines if compounding fees are worth it</td>
-        </tr>
-        <tr>
-          <td>Gross APR</td>
-          <td>Network/validator rate before compounding</td>
-          <td>Baseline yield driver</td>
-        </tr>
-        <tr>
-          <td>Validator commission</td>
-          <td>Operator cut</td>
-          <td>Directly reduces rewards</td>
-        </tr>
-        <tr>
-          <td>Compounding frequency</td>
-          <td>Monthly/weekly/daily (if applicable)</td>
-          <td>Increases APY but may increase fees</td>
-        </tr>
-        <tr>
-          <td>Tx costs</td>
-          <td>Claim/compound/unstake fees</td>
-          <td>Can dominate small portfolios</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="note">
-      <strong>Calculator takeaway:</strong> For smaller balances, “set and forget” (no frequent compounding) often yields higher net results after fees.
-    </div>
-  </section>
-
-  <section class="card" id="validators">
-    <h2>Polygon Validator List: How to Choose the Right Validator</h2>
-    <p>
-      Instead of chasing “top APR”, evaluate validators like infrastructure providers.
-      A strong <strong>Polygon validator list</strong> checklist:
-    </p>
-    <ul>
-      <li><strong>Commission:</strong> reasonable and stable (avoid sudden spikes).</li>
-      <li><strong>Uptime &amp; reliability:</strong> consistent performance matters more than hype.</li>
-      <li><strong>Transparency:</strong> clear operator identity, documentation, and communication.</li>
-      <li><strong>Risk posture:</strong> sensible security practices and operational maturity.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Heuristic:</strong> Pick validators you can explain in one sentence (who they are + why you trust their operations).
-    </div>
-  </section>
-
-  <section class="card" id="minimum">
-    <h2>Polygon Staking Minimum POL Required</h2>
-    <p>
-      The <strong>Polygon staking minimum POL required</strong> depends on the staking method and platform.
-      In practice, your “real minimum” is the amount where fees don’t crush net yield and you can still afford
-      exit transactions if needed.
-    </p>
-    <ul>
-      <li><strong>Hard minimum:</strong> varies by method/platform.</li>
-      <li><strong>Practical minimum:</strong> enough POL so periodic transactions (claim/compound/unstake) don’t eat yield.</li>
-      <li><strong>Safety minimum:</strong> keep extra for network fees and recovery actions.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Rule:</strong> Always keep a gas buffer; being “all-in” is how people get stuck.
-    </div>
-  </section>
-
-  <section class="card" id="yield">
-    <h2>Polygon Staking Yield: How to Think About Net Returns</h2>
-    <p>
-      <strong>Polygon staking yield</strong> should be evaluated as <em>net</em> performance: rewards minus commissions minus fees,
-      adjusted for time locked/unbonded and any downtime.
-    </p>
-
-    <h3>Net yield checklist</h3>
-    <ul>
-      <li>Gross rewards earned</li>
-      <li>Minus validator commission</li>
-      <li>Minus transaction costs (claim/compound/unstake)</li>
-      <li>Minus “lost time” (unbonding delays / operational downtime)</li>
-    </ul>
-
-    <div class="note">
-      <strong>Best practice:</strong> Track realized outcomes quarterly. If net yield is not beating your alternative (or risk feels wrong), rotate strategy.
-    </div>
-  </section>
-
-  <section class="card" id="review">
-    <h2>Staking Polygon Review: Legit, Trust, and What to Watch (2025–2026)</h2>
-    <p>
-      A <strong>Staking Polygon review</strong> should focus on predictable outcomes and safety:
-      whether the process is understandable, the validator ecosystem is mature, and the “gotchas” are manageable.
-    </p>
-
-    <div class="callout-grid">
+  <section class="card" id="verify">
+    <h2>Explorer Verification: What to Check (Non-Negotiable)</h2>
+    <div class="grid-2">
       <div class="mini">
-        <h3>Staking Polygon legit?</h3>
+        <h3>Avalanche explorers</h3>
         <p class="muted">
-          Generally, staking as a mechanism is legitimate. Your real question is: <em>which method/provider</em> and
-          <em>which validator</em> are you trusting operationally.
+          Use explorers to confirm C-Chain receipts, token contracts, and balances.
+          <br>
+          <a href="https://snowtrace.io/" target="_blank" rel="noopener nofollow">Snowtrace</a>
+          &nbsp;•&nbsp;
+          <a href="https://avascan.info/" target="_blank" rel="noopener nofollow">Avascan</a>
         </p>
       </div>
       <div class="mini">
-        <h3>Staking Polygon trust</h3>
+        <h3>Ethereum explorer</h3>
         <p class="muted">
-          Trust is earned via transparency: clear docs, known operators, consistent performance, and a clean exit path.
+          Use Etherscan to verify origin/exit transactions and token contracts on L1.
+          <br>
+          <a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan</a>
         </p>
       </div>
     </div>
 
-    <div class="note">
-      <strong>2025 / 2026 lens:</strong> The market rewards operational discipline. Assume attackers target approvals, fake sites, and users rushing steps.
+    <div class="note" style="margin-top:1rem;">
+      <strong>Minimum checks:</strong> address, chain, tx status, token contract, and amount. If any of these is unclear, stop.
     </div>
   </section>
 
   <section class="card" id="safety">
-    <h2>Staking Polygon Safe? Risks and Rewards (What Actually Matters)</h2>
-    <p>
-      “Safe” is not binary. <strong>Staking Polygon safe</strong> depends on method risk + validator/operator risk + user mistakes.
-      You can reduce risk dramatically with hygiene and conservative choices.
-    </p>
-
-    <h3>Key risks</h3>
+    <h2>Avalanche Cross Chain Bridge Security Checklist</h2>
     <ul>
-      <li><strong>Smart-contract risk:</strong> higher with extra layers (some liquid staking designs).</li>
-      <li><strong>Validator/operator risk:</strong> downtime, poor ops, slashing exposure.</li>
-      <li><strong>Phishing/approval risk:</strong> fake UIs and bad approvals are top avoidable loss sources.</li>
-      <li><strong>Liquidity risk:</strong> you may not be able to exit instantly (unbonding / market liquidity).</li>
+      <li><strong>Bookmark official URLs</strong> (Core bridge, explorers). Don’t use ads.</li>
+      <li><strong>Verify token contracts</strong> on both origin and destination explorers.</li>
+      <li><strong>Use an interaction wallet</strong> (separate from a vault wallet).</li>
+      <li><strong>Limit approvals</strong> and periodically revoke allowances.</li>
+      <li><strong>Test first</strong> before bridging meaningful amounts.</li>
+      <li><strong>Keep gas buffers</strong> on both chains (AVAX and/or ETH).</li>
     </ul>
 
     <div class="note">
-      <strong>Hard rule:</strong> Use bookmarks for official sites, prefer minimal approvals, and keep a separate wallet for “daily” dApp usage if you’re staking meaningful size.
-    </div>
-  </section>
-
-  <section class="card" id="comparison">
-    <h2>Staking Polygon Comparison: Native Staking vs Liquid Staking</h2>
-    <p>
-      <strong>Staking Polygon vs liquid staking</strong> is a trade-off between simplicity and flexibility.
-      Choose based on your need for liquidity and your tolerance for extra smart-contract/market risks.
-    </p>
-
-    <table aria-label="Native vs Liquid staking">
-      <thead>
-        <tr>
-          <th>Dimension</th>
-          <th>Native delegation</th>
-          <th>Liquid staking</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="highlight">
-          <td>Liquidity</td>
-          <td>Lower (unbonding delays)</td>
-          <td>Higher (tokenized position, depends on market)</td>
-        </tr>
-        <tr>
-          <td>Complexity</td>
-          <td>Lower</td>
-          <td>Higher (contracts + peg/liquidity)</td>
-        </tr>
-        <tr>
-          <td>Risk surface</td>
-          <td>Validator/operator + protocol rules</td>
-          <td>Native risks + smart-contract + market liquidity risks</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="note">
-      <strong>Decision rule:</strong> If you need quick exits, liquid staking can help—but treat it like an additional layer of risk.
-    </div>
-  </section>
-
-  <section class="card" id="best-practices">
-    <h2>Best Way to Stake Polygon: Best Practices (Simple, High-Impact)</h2>
-    <ul>
-      <li><strong>Use a hardware wallet</strong> for meaningful amounts.</li>
-      <li><strong>Delegate in tranches</strong> (test small, then scale).</li>
-      <li><strong>Prefer reputable validators</strong> with stable commission and strong ops.</li>
-      <li><strong>Keep a gas buffer</strong> for claim/unstake/recovery actions.</li>
-      <li><strong>Review allowances periodically</strong> and revoke stale permissions.</li>
-      <li><strong>Track net yield</strong> (not just headline APY).</li>
-    </ul>
-
-    <div class="note">
-      <strong>Most common mistake:</strong> users optimize for +0.5% yield and ignore the 10× bigger risk: bad ops + bad security habits.
+      <strong>Fast safety rule:</strong> If you can’t answer “what chain, what address, what token contract, what destination,” don’t bridge size.
     </div>
   </section>
 
   <section class="card" id="troubleshooting">
-    <h2>Staking Polygon Troubleshooting: Common Issues, Root Causes, Fixes</h2>
+    <h2>Avalanche Cross Chain Bridge Troubleshooting: Fixes by Symptom</h2>
 
-    <h3>“Rewards not showing”</h3>
+    <h3>“Funds not showing on Avalanche”</h3>
     <ul>
-      <li>You’re viewing the wrong network/account in the wallet.</li>
-      <li>Rewards accrue but require a claim/refresh action in the UI.</li>
-      <li>Validator has downtime or reporting lag—check on-chain data if available.</li>
+      <li>Switch wallet to Avalanche C-Chain.</li>
+      <li>Check your address on Snowtrace/Avascan.</li>
+      <li>Import the token by contract address if not displayed.</li>
+      <li>Confirm origin tx confirmations (Ethereum can be slow during congestion).</li>
     </ul>
 
-    <h3>“Can’t unstake / withdraw”</h3>
+    <h3>“Funds not showing on Ethereum after bridging out”</h3>
     <ul>
-      <li>Unbonding period is active (wait until it completes).</li>
-      <li>There is a claim/finalize step you haven’t executed.</li>
-      <li>You don’t have enough gas for the exit transaction.</li>
+      <li>Check Avalanche tx success first.</li>
+      <li>Check destination Ethereum address on Etherscan.</li>
+      <li>Import token by contract address; confirm you’re on correct wallet account.</li>
     </ul>
 
-    <h3>“APY seems lower than expected”</h3>
+    <h3>“I can’t move tokens on Avalanche”</h3>
     <ul>
-      <li>Commission is higher than assumed.</li>
-      <li>Compounding is not happening (or fees make it not worth it).</li>
-      <li>Validator performance/uptime reduced realized rewards.</li>
+      <li>You likely have no AVAX for gas. Get a small AVAX buffer.</li>
+      <li>Confirm you’re on C-Chain (not another chain view).</li>
     </ul>
 
     <div class="note">
-      <strong>Best debugging method:</strong> verify state from the chain / official dashboards first, then UI second.
-      UI can lag; on-chain data is the source of truth.
+      <strong>Explorer-first debugging:</strong> if explorers show success, the issue is almost always wallet view or token import—not “lost funds.”
     </div>
   </section>
 
   <section class="eeat" id="eeat" aria-labelledby="eeat-title">
-    <h2 id="eeat-title">Staking Polygon: Authoritative Notes &amp; External References</h2>
-    <p>
-      Replace placeholder links with your chosen authoritative sources. Keep this block “clean” (official docs, reputable security resources,
-      and dashboards) to strengthen EEAT.
-    </p>
+    <h2 id="eeat-title">Avalanche Cross Chain Bridge: Authoritative Sources & References</h2>
+    <p>Keep sources tight: official bridge + explorers + security hygiene.</p>
 
-    <h3>Polygon / Staking</h3>
+    <h3>Official bridge & wallet</h3>
     <ul>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon — Official Site</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Staking — Official Docs</a></li>
-      <li><a href="#" target="_blank" rel="noopener nofollow">Polygon Validators — Explorer / Dashboard</a></li>
+      <li><a href="https://core.app/bridge" target="_blank" rel="noopener nofollow">Core — Bridge</a></li>
+      <li><a href="https://core.app/" target="_blank" rel="noopener nofollow">Core — Wallet & tools</a></li>
+      <li><a href="https://www.avax.network/" target="_blank" rel="noopener nofollow">Avalanche (official)</a></li>
+    </ul>
+
+    <h3>Explorers</h3>
+    <ul>
+      <li><a href="https://snowtrace.io/" target="_blank" rel="noopener nofollow">Snowtrace (C-Chain)</a></li>
+      <li><a href="https://avascan.info/" target="_blank" rel="noopener nofollow">Avascan</a></li>
+      <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan</a></li>
     </ul>
 
     <h3>Security hygiene</h3>
     <ul>
-      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — Revoke Token Approvals</a></li>
-      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Allowance Management</a></li>
-      <li><a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener nofollow">OpenZeppelin — Smart Contract Security</a></li>
-      <li><a href="https://consensys.io/blog" target="_blank" rel="noopener nofollow">Consensys — Security Research</a></li>
+      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — approvals</a></li>
+      <li><a href="https://ethereum.org/guides/how-to-revoke-token-access/" target="_blank" rel="noopener nofollow">Ethereum.org — revoke approvals guide</a></li>
+      <li><a href="https://blog.openzeppelin.com/" target="_blank" rel="noopener nofollow">OpenZeppelin — smart contract security</a></li>
     </ul>
 
     <div class="note">
-      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical SEO-oriented knowledge base for <em>Staking Polygon (POL)</em>:
-      rewards, APY/APR, validators, calculator framework, safety, comparisons, and troubleshooting.
+      <strong>About:</strong> Prepared by Crypto Finance Experts as a security-first knowledge base for <em>Avalanche Cross Chain Bridge</em> (2026).
     </div>
   </section>
 
   <section class="card faq-section" aria-labelledby="faq">
-    <h2 id="faq">Staking Polygon (POL): Frequently Asked Questions</h2>
+    <h2 id="faq">Avalanche Cross Chain Bridge FAQ (2026)</h2>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
-        <h3>What is Staking Polygon (POL) and how does it work?</h3><span class="faq-plus">+</span>
+        <h3>What is Avalanche Cross Chain Bridge?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
-        <p><strong>Staking Polygon (POL)</strong> typically involves delegating POL to validators (or using a staking method that represents your stake) to earn rewards while supporting network operations.</p>
+        <p>It’s the process of moving assets between Avalanche (usually C-Chain) and other networks (commonly Ethereum) using a bridge route. Cross-chain transfers require careful verification of chain, address, and token contracts.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
-        <h3>Polygon staking rewards: what affects my yield?</h3><span class="faq-plus">+</span>
+        <h3>What is the official bridge for Avalanche cross-chain transfers?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
-        <p>Your net yield depends on gross rate, validator commission, validator performance/uptime, compounding behavior, and transaction costs for claim/compound/unstake actions.</p>
+        <p>A common official entry point is Core Bridge at <span class="inline-code">core.app/bridge</span>. Bookmark it to reduce phishing risk.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
-        <h3>Polygon staking APY / APR: which should I trust?</h3><span class="faq-plus">+</span>
+        <h3>Which Avalanche chain do bridged assets usually land on?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
-        <p>APR is a simple rate; APY assumes compounding. Trust the number that matches your actual compounding cadence and includes fees/commission in the net estimate.</p>
+        <p>Most EVM assets for DeFi land on <strong>Avalanche C-Chain</strong>. Always confirm destination chain in the UI and verify on a C-Chain explorer.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
-        <h3>How to stake Polygon (POL) safely?</h3><span class="faq-plus">+</span>
+        <h3>What fees do I pay for cross-chain bridging?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
-        <p>Use official links (bookmarks), consider a hardware wallet for size, delegate a small test first, choose reputable validators, and keep a gas buffer for exits and recovery actions.</p>
+        <p>Total fees are typically: origin chain gas + bridge fee (if any) + destination chain gas (AVAX or ETH depending on side).</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
-        <h3>Staking Polygon safe, legit, and trustworthy in 2026?</h3><span class="faq-plus">+</span>
+        <h3>Why are my funds not showing after bridging?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
-        <p>Staking as a mechanism can be legitimate, but outcomes depend on method/provider risk, validator quality, and user security hygiene. Treat phishing and approvals as the top avoidable risks.</p>
+        <p>Most often: wrong chain selected in wallet, wrong account, UI lag, or token not imported by contract address. Verify your address and token contract on explorers first.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
-        <h3>Polygon validator list: what matters most?</h3><span class="faq-plus">+</span>
+        <h3>Do I need AVAX for gas even if I bridged ETH or stablecoins?</h3><span class="faq-plus">+</span>
       </button>
       <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
-        <p>Look for stable commission, strong uptime/performance, transparency, and operational reputation. Avoid unknown operators offering eye-catching headline rates.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
-        <h3>Staking Polygon vs liquid staking: which is better?</h3><span class="faq-plus">+</span>
-      </button>
-      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
-        <p>Native staking is simpler but less liquid; liquid staking may be more flexible but adds smart-contract and market liquidity/peg risks. Choose based on your need for fast exits.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
-        <h3>Polygon staking calculator: what inputs do I need?</h3><span class="faq-plus">+</span>
-      </button>
-      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
-        <p>Stake amount, gross APR, validator commission, compounding frequency, and transaction costs. The goal is a net yield estimate, not a marketing APY.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
-        <h3>Why can’t I unstake or withdraw right now?</h3><span class="faq-plus">+</span>
-      </button>
-      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
-        <p>Most commonly: an unbonding period is still running, a claim/finalize step is required, or you lack gas for the exit transaction.</p>
+        <p>Yes. AVAX pays gas on C-Chain. Without AVAX, you can’t swap, transfer, approve, or revoke tokens on Avalanche.</p>
       </div>
     </div>
 
@@ -914,21 +867,53 @@
 </main>
 
 <footer class="container" role="contentinfo" style="padding:2rem 0; border-top:1px solid var(--line); margin-top:2rem">
-  <p class="muted">© 2026 Staking Polygon (POL) Guide. Educational content with safety-first operational focus.</p>
+  <p class="muted">© 2026 Avalanche Cross Chain Bridge Guide. Educational content with a security-first operational focus.</p>
 </footer>
 
+<script>
+  // Accessible FAQ accordion
+  (function(){
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach((item) => {
+      const btn = item.querySelector('.faq-button');
+      const panel = item.querySelector('.faq-content');
+      const plus = item.querySelector('.faq-plus');
 
+      if(!btn || !panel) return;
 
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
+        // close all
+        items.forEach((it) => {
+          const b = it.querySelector('.faq-button');
+          const p = it.querySelector('.faq-content');
+          const s = it.querySelector('.faq-plus');
+          if(!b || !p) return;
+          b.setAttribute('aria-expanded', 'false');
+          p.style.maxHeight = '0px';
+          p.classList.remove('open');
+          if(s) s.textContent = '+';
+        });
 
+        // open clicked if it was closed
+        if(!isOpen){
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.add('open');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          if(plus) plus.textContent = '–';
+        }
+      });
 
+      window.addEventListener('resize', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
 
-
-
-
-
-
-
-
-
-</body></html>
+</body>
+</html>
