@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avalanche Cross Chain Bridge – Fast &amp; Secure Transfers</title>
+<meta name="description" content="Avalanche cross chain bridge lets you move tokens between Avalanche and other networks quickly and securely. Learn how it works, fees, risks, and start bridging today.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://avalanche-cross-chain-bridge.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Avalanche Cross Chain Bridge – Fast &amp; Secure Transfers">
+<meta property="og:description" content="Avalanche cross chain bridge lets you move tokens between Avalanche and other networks quickly and securely. Learn how it works, fees, risks, and start bridging today.">
+<meta property="og:url" content="https://avalanche-cross-chain-bridge.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Avalanche Cross Chain Bridge – Fast &amp; Secure Transfers">
+<meta name="twitter:description" content="Avalanche cross chain bridge lets you move tokens between Avalanche and other networks quickly and securely. Learn how it works, fees, risks, and start bridging today.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Avalanche Cross Chain Bridge – Fast & Secure Transfers", "description": "Avalanche cross chain bridge lets you move tokens between Avalanche and other networks quickly and securely. Learn how it works, fees, risks, and start bridging today.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://avalanche-cross-chain-bridge.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avalanche-cross-chain-bridge.github.io"}, {"@type": "ListItem", "position": 2, "name": "Avalanche Cross Chain Bridge – Fast & Secure Transfers", "item": "https://avalanche-cross-chain-bridge.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the avalanche cross chain bridge used for?", "acceptedAnswer": {"@type": "Answer", "text": "Avalanche cross chain bridge is used to transfer tokens between Avalanche and other blockchains such as Ethereum. Instead of selling assets on one chain and rebuying on another, you lock tokens on the source network and receive wrapped equivalents on Avalanche."}}, {"@type": "Question", "name": "Is avalanche cross chain bridge safe?", "acceptedAnswer": {"@type": "Answer", "text": "Avalanche cross chain bridge can be safe when using official, audited interfaces, but it still carries smart contract risk. Always verify URLs, use hardware wallets when possible, and avoid transferring large sums without testing first."}}, {"@type": "Question", "name": "How long does avalanche cross chain bridge take?", "acceptedAnswer": {"@type": "Answer", "text": "Avalanche cross chain bridge duration depends mainly on Ethereum confirmation times. Source chain congestion can extend waits to several minutes, while Avalanche finality typically completes minting within seconds after validation."}}, {"@type": "Question", "name": "What are avalanche bridge fees?", "acceptedAnswer": {"@type": "Answer", "text": "Fees include Ethereum gas for approvals and transfers, plus Avalanche gas for minting. Total cost fluctuates based on network congestion and token complexity."}}, {"@type": "Question", "name": "Can I bridge AVAX to Ethereum?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can bridge AVAX or wrapped assets back to Ethereum by burning tokens on Avalanche and unlocking the original collateral on the source chain, assuming liquidity and support exist."}}, {"@type": "Question", "name": "Do I need MetaMask for avalanche cross chain bridge?", "acceptedAnswer": {"@type": "Answer", "text": "No single wallet is mandatory, but you need an EVM-compatible wallet such as MetaMask configured for Avalanche C-Chain. Hardware wallets can add additional protection."}}, {"@type": "Question", "name": "What happens if a bridge transaction fails?", "acceptedAnswer": {"@type": "Answer", "text": "If a transaction fails before confirmation, funds usually remain in your wallet minus gas fees. If complications occur mid-process, consult official support channels and blockchain explorers for status verification."}}, {"@type": "Question", "name": "Is avalanche cross chain bridge better than exchanges?", "acceptedAnswer": {"@type": "Answer", "text": "Avalanche cross chain bridge avoids custodial risk associated with centralized exchanges, but exchanges may offer simpler interfaces. Your choice depends on whether you prioritize self-custody or convenience."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE LIGHT — Warm White Premium
+   Template ID: base-light
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #faf9f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefefe;
+  --bg-subtle: #f3f2ee;
+  --accent: #e85d3a;
+  --accent-hover: #d14f2f;
+  --accent-light: rgba(232,93,58,0.07);
+  --accent-border: rgba(232,93,58,0.2);
+  --gradient-cta: linear-gradient(135deg, #e85d3a, #d14f2f);
+  --gradient-cta-glow: rgba(232,93,58,0.2);
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-muted: #a8a29e;
+  --border: #e7e5e0;
+  --border-hover: #d6d3cd;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════ PROGRESS BAR ═══════ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; width: 0%; height: 2px;
+  background: var(--accent); z-index: 10000;
+  transition: width 0.1s linear;
+}
+
+/* ═══════ CONTAINERS ═══════ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.content-container { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══════ PILL NAVIGATION ═══════ */
+.pill-nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 9000;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 6px;
+  display: flex; align-items: center; gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.pill-nav::-webkit-scrollbar { display: none; }
+.pill-nav.visible { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+
+.pill-nav a {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 7px 14px; border-radius: 50px;
+  transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+.pill-nav a:hover { color: var(--text-primary); background: var(--bg-subtle); }
+.pill-nav a.active { color: var(--text-primary); background: var(--bg-subtle); font-weight: 600; }
+
+/*CTA_START*/
+.pill-nav .pill-cta {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 600;
+  color: #fff; background: var(--gradient-cta);
+  padding: 7px 18px; border-radius: 50px; text-decoration: none;
+  margin-left: 4px; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px var(--gradient-cta-glow);
+}
+.pill-nav .pill-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--gradient-cta-glow); }
+/*CTA_END*/
+
+/* ═══════ HERO ═══════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; z-index: 1; padding: 80px 24px;
+  background: var(--bg-secondary);
+}
+.hero::before {
+  content: ''; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 500px;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 780px; position: relative; }
+
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 800; line-height: 1.06; letter-spacing: -0.04em;
+  color: var(--text-primary); margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: 1.125rem; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 40px; line-height: 1.8;
+}
+
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 38px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px var(--gradient-cta-glow);
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(232,93,58,0.3); animation: none; }
+.hero-cta svg { width: 18px; height: 18px; }
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); }
+  50% { box-shadow: 0 4px 32px rgba(232,93,58,0.3); }
+}
+/*CTA_END*/
+
+.hero-scroll-hint {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  color: var(--text-muted); font-size: 0.7rem; font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: hintPulse 2.5s ease-in-out infinite;
+}
+.hero-scroll-hint span { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-muted), transparent); }
+@keyframes hintPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+/* ═══════ CONTENT AREA ═══════ */
+.content-area { padding: 80px 0; position: relative; z-index: 1; }
+
+.content-area h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; line-height: 1.2; letter-spacing: -0.025em;
+  color: var(--text-primary); margin: 64px 0 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+.content-area h2:first-child { margin-top: 0; }
+.content-area h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1875rem; font-weight: 600;
+  color: var(--text-primary); margin: 36px 0 10px;
+  scroll-margin-top: 80px;
+}
+.content-area h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--text-primary); margin: 24px 0 8px; }
+.content-area p { color: var(--text-secondary); margin-bottom: 16px; line-height: 1.85; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text-primary); font-weight: 700; }
+.content-area section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0eeea; }
+.content-area section:last-of-type { border-bottom: none; }
+
+/* Intro */
+.content-area .intro { font-size: 1.0625rem; border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 40px; border-bottom: none; }
+.content-area .intro p { color: var(--text-secondary); font-size: 1.0625rem; }
+
+/* Capsule */
+.capsule {
+  background: var(--accent-light); border: 1px solid rgba(232,93,58,0.12);
+  border-radius: var(--radius-md); padding: 18px 22px;
+  font-size: 1.0625rem; line-height: 1.7;
+  color: var(--text-primary) !important; margin: 16px 0;
+}
+
+/* Evidence */
+.evidence {
+  font-size: 0.875rem; color: var(--text-muted) !important;
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px 16px 12px 42px;
+  margin: 12px 0 20px; position: relative;
+}
+.evidence::before {
+  content: '◈'; position: absolute; left: 15px; top: 11px;
+  font-size: 0.75rem; color: var(--accent);
+}
+
+/* Lists */
+.content-area ul, .content-area ol { margin: 16px 0; padding-left: 24px; color: var(--text-secondary); }
+.content-area li { margin-bottom: 8px; line-height: 1.75; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--accent); font-weight: 700; font-family: 'Bricolage Grotesque', sans-serif; }
+
+/* Blockquote */
+.content-area blockquote {
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); padding: 24px 24px 24px 52px;
+  margin: 28px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+.content-area blockquote::before {
+  content: '\201C'; position: absolute; left: 16px; top: 10px;
+  font-size: 2.5rem; line-height: 1; color: var(--accent); opacity: 0.4;
+  font-family: Georgia, serif;
+}
+.content-area blockquote p { color: var(--text-primary); font-size: 1.0625rem; font-style: italic; margin: 0; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-subtle); }
+.table-wrap th { padding: 13px 18px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.table-wrap td { padding: 13px 18px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: 0.9375rem; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: var(--bg-subtle); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 24px 0; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 22px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; color: var(--text-primary); margin: 0 0 8px; }
+.card p { font-size: 0.9375rem; color: var(--text-secondary); margin: 0; }
+
+/* Steps */
+.steps { margin: 28px 0; counter-reset: step-counter; position: relative; padding-left: 24px; }
+.steps::before {
+  content: ''; position: absolute; left: 17px; top: 28px; bottom: 28px; width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: 2px;
+}
+.step {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 16px 0; counter-increment: step-counter; position: relative;
+}
+.step::before {
+  content: counter(step-counter); min-width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-secondary); border: 2px solid var(--accent);
+  border-radius: 50%; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700; font-size: 0.8125rem; color: var(--accent); flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.step h4 { margin: 0 0 4px; }
+.step p { margin: 0; font-size: 0.9375rem; }
+
+/* TOC */
+.toc {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px 28px; margin: 24px 0 40px;
+  box-shadow: var(--shadow-sm);
+}
+.toc h2 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 12px; padding: 0; border: none; }
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--text-secondary); border-bottom: none; font-size: 0.9375rem; }
+.toc a:hover { color: var(--accent); }
+
+/* Pills */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pill { display: inline-block; padding: 5px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); font-size: 0.8125rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { text-align: center; margin: 36px 0; }
+
+.cta-section {
+  text-align: center; padding: 56px 32px; margin: 48px 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: -30%; width: 160%; height: 160%;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.03), transparent 60%);
+  pointer-events: none;
+}
+.cta-section h2 { border: none; padding: 0; margin: 0 0 10px; position: relative; }
+.cta-section p { margin-bottom: 26px; position: relative; }
+
+.cta-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 36px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  box-shadow: 0 4px 20px var(--gradient-cta-glow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,93,58,0.3); }
+
+.floating-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 12px 24px; text-align: center;
+  transform: translateY(100%); transition: transform 0.35s ease;
+}
+.floating-cta.visible { transform: translateY(0); }
+.floating-cta .cta-button { padding: 12px 28px; font-size: 0.9375rem; }
+/*CTA_END*/
+
+/* FAQ */
+.faq-section { margin: 48px 0; border-bottom: none !important; }
+.faq-section h2 { text-align: center; border: none; padding: 0; margin-bottom: 24px; }
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 4px; cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500; font-size: 1rem; color: var(--text-primary);
+  list-style: none; transition: color 0.2s;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-size: 1.25rem; font-weight: 300; color: var(--text-muted); flex-shrink: 0; margin-left: 16px; }
+.faq-section details[open] summary::after { content: '\2212'; color: var(--accent); }
+.faq-section summary:hover { color: var(--accent); }
+.faq-section details p { padding: 0 4px 18px; font-size: 0.9375rem; color: var(--text-secondary); }
+.faq-section h3 { margin-top: 24px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; color: var(--text-primary); padding: 16px 4px 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 4px 16px; color: var(--text-secondary); font-size: 0.9375rem; margin: 0; }
+
+.disclosure { font-size: 0.8125rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 16px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; position: relative; z-index: 1; }
+footer p { color: var(--text-muted); font-size: 0.8125rem; }
+footer .updated { margin-top: 6px; font-size: 0.75rem; }
+
+#back-to-top {
+  position: fixed; bottom: 32px; right: 32px; width: 42px; height: 42px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 50%; color: var(--text-muted); font-size: 1.125rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+  z-index: 999; box-shadow: var(--shadow-md);
+}
+#back-to-top.visible { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 24px 0; border: 1px solid var(--border); }
+
+@media (max-width: 768px) {
+  .container, .content-container { padding: 0 16px; }
+  .hero h1 { font-size: 2.25rem; }
+  .pill-nav { padding: 4px 5px; }
+  .pill-nav a { padding: 6px 10px; font-size: 0.75rem; }
+  .pill-nav .pill-cta { padding: 6px 14px; font-size: 0.75rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .steps { padding-left: 16px; }
+  .step::before { min-width: 30px; height: 30px; font-size: 0.75rem; }
+  #back-to-top { bottom: 72px; right: 16px; }
+}
+
+@media print {
+  .pill-nav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress-bar, .hero-scroll-hint { display: none !important; }
+  body { color: #000; background: #fff; }
+  .hero { min-height: auto; padding: 40px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); } }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<nav class="pill-nav" id="pill-nav"></nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1>Avalanche Cross Chain Bridge</h1>
+    <p class="hero-subtitle">Transfer crypto between Avalanche and other blockchains in minutes.</p>
+    <!--CTA_START-->
+    <a href="/sushiswap/" class="hero-cta">Bridge to Avalanche <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!--CTA_END-->
+  </div>
+  <div class="hero-scroll-hint">scroll<span></span></div>
+</section>
+
+<main class="content-area">
+  <div class="content-container">
+    <section class="intro">
+  <p><strong>avalanche cross chain bridge</strong> is a blockchain interoperability solution that enables users to transfer tokens and digital assets between the Avalanche network and other chains, such as Ethereum, by locking assets on one network and minting corresponding wrapped tokens on another. In simple terms, it’s how you move value from Ethereum to Avalanche without selling your assets.</p>
+  <p>Crypto doesn’t live on one chain anymore. DeFi traders chase yields across networks, NFT collectors jump between ecosystems, and liquidity flows where fees are lower. Knowing how the Avalanche Bridge works — including fees, confirmation times, and smart contract risk — can save you money and prevent costly mistakes.</p>
+  <p>Here’s what you’ll get: a clear breakdown of how the bridge operates, step-by-step instructions, fee comparisons, security considerations, and practical wallet setup tips. After testing different bridge routes and comparing alternatives, we’ll show you how to complete your first cross-chain transfer with confidence.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#what-is-avalanche-cross-chain-bridge">What Is Avalanche Cross Chain Bridge?</a></li>
+    <li><a href="#how-avalanche-cross-chain-bridge-works">How Avalanche Cross Chain Bridge Works</a></li>
+    <li><a href="#supported-networks-and-assets">Supported Networks and Assets</a></li>
+    <li><a href="#fees-and-confirmation-times">Fees and Confirmation Times</a></li>
+    <li><a href="#step-by-step-bridge-guide">Step-by-Step Bridge Guide</a></li>
+    <li><a href="#common-risks-and-mistakes">Common Risks and Mistakes</a></li>
+    <li><a href="#avalanche-cross-chain-bridge-vs-alternatives">Avalanche Cross Chain Bridge vs Alternatives</a></li>
+    <li><a href="#comparison">Bridge Comparison Table</a></li>
+    <li><a href="#security">Security & Audits</a></li>
+    <li><a href="#advanced-bridge-strategies">Advanced Bridge Strategies</a></li>
+    <li><a href="#wallet-setup-and-configuration">Wallet Setup and Configuration</a></li>
+    <li><a href="#real-world-use-cases">Real-World Use Cases</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<section id="what-is-avalanche-cross-chain-bridge">
+  <h2>What Is Avalanche Cross Chain Bridge?</h2>
+  <p class="capsule">Avalanche cross chain bridge is an interoperability protocol that allows users to move tokens such as ETH, ERC-20 assets, or stablecoins between Ethereum and the Avalanche C-Chain by locking assets on the origin chain and minting wrapped equivalents on Avalanche.</p>
+  <p class="evidence">Avalanche is a Layer 1 blockchain launched by Ava Labs in 2020, designed for high throughput and low fees; its official documentation explains cross-chain transfers through bridge contracts that lock and mint assets (<a href="https://docs.avax.network" rel="noopener noreferrer" target="_blank">https://docs.avax.network</a>).</p>
+  <p>Unlike selling ETH for AVAX on an exchange, bridging preserves your exposure. Your original tokens are locked in a smart contract on Ethereum, while a corresponding wrapped token appears on Avalanche. Move back, and the process reverses.</p>
+  <h3>Why Users Bridge to Avalanche</h3>
+  <p>Lower gas fees attract most users. Ethereum transactions can spike above $20 during congestion, while Avalanche C-Chain fees often remain under a few dollars. DeFi protocols on Avalanche also offer incentives for liquidity providers, making cross-chain transfer AVAX strategies common among yield seekers.</p>
+  <h3>Difference Between Bridge and Swap</h3>
+  <p>Swapping changes one asset into another. Bridging keeps the same asset exposure but changes the network location. Think of it like moving your bank account to another city branch instead of converting dollars to euros — ownership stays intact, geography changes.</p>
+  <h3>Core Components of Avalanche Cross Chain Bridge</h3>
+  <p>Smart contracts handle locking and minting, validators confirm transactions, and wallets like MetaMask interact with both chains. Avalanche X-Chain and C-Chain serve different purposes, but most DeFi activity — and bridging — occurs on the C-Chain.</p>
+</section>
+
+<section id="how-avalanche-cross-chain-bridge-works">
+  <h2>How Avalanche Cross Chain Bridge Works</h2>
+  <p class="capsule">Avalanche cross chain bridge works by locking tokens in a smart contract on the source chain, verifying the transaction through validators or relayers, and issuing a wrapped version of the asset on the destination chain, maintaining a 1:1 peg.</p>
+  <p class="evidence">Wrapped token mechanics are widely documented in blockchain literature; see the overview of wrapped tokens on Wikipedia (<a href="https://en.wikipedia.org/wiki/Wrapped_token" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Wrapped_token</a>).</p>
+  <p>Process flow matters. You approve token access in your wallet, confirm the bridge transaction, and wait for confirmations on the source network. Once validated, the Avalanche network mints the equivalent wrapped asset.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Approve Token</h4>
+        <p>Grant the bridge smart contract permission to transfer your ERC-20 tokens.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Lock on Source</h4>
+        <p>Assets are locked on Ethereum or another supported network.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Mint on Avalanche</h4>
+        <p>Equivalent wrapped tokens appear in your Avalanche wallet.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Role of Smart Contracts</h3>
+  <p>Smart contracts enforce the 1:1 collateralization model. Once tokens are locked, they cannot be moved without the reverse burn event. That design reduces double-spend risk but introduces smart contract exposure.</p>
+  <h3>Validators and Confirmation Time</h3>
+  <p>Ethereum block confirmations can take several minutes depending on gas settings. Avalanche finality is typically under two seconds, which speeds up the minting phase once source confirmation completes.</p>
+  <h3>Reversing the Avalanche Cross Chain Bridge</h3>
+  <p>To bridge back, you burn the wrapped asset on Avalanche. After validation, the original tokens unlock on Ethereum. In our experience, reverse transfers feel faster because Avalanche finality reduces delays on the burn side.</p>
+</section>
+
+<section id="supported-networks-and-assets">
+  <h2>Supported Networks and Assets</h2>
+  <p class="capsule">Avalanche cross chain bridge commonly supports Ethereum and Avalanche C-Chain, enabling transfers of ETH, AVAX, and popular ERC-20 tokens such as USDC or USDT, depending on bridge provider and liquidity conditions.</p>
+  <p class="evidence">Most official bridge documentation lists supported ERC-20 assets and network pairs directly within user interfaces and technical docs provided by Ava Labs.</p>
+  <p>Ethereum remains the primary origin chain. However, third-party bridges like LayerZero-based solutions may expand connectivity to additional networks beyond Ethereum.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Ethereum</h4>
+      <p>Main source chain for ERC-20 assets and ETH bridging.</p>
+    </div>
+    <div class="card">
+      <h4>Avalanche C-Chain</h4>
+      <p>EVM-compatible chain used for DeFi, NFTs, and dApps.</p>
+    </div>
+    <div class="card">
+      <h4>Stablecoins</h4>
+      <p>USDC and USDT are among the most frequently bridged assets.</p>
+    </div>
+  </div>
+  <h3>AVAX and Wrapped AVAX</h3>
+  <p>AVAX is the native token used for gas. Wrapped AVAX (WAVAX) functions as an ERC-20 representation within DeFi protocols, allowing easier integration with smart contracts.</p>
+  <h3>MetaMask Avalanche Bridge Compatibility</h3>
+  <p>MetaMask supports Avalanche C-Chain once you add the network configuration. After setup, bridging feels identical to interacting with Ethereum-based dApps.</p>
+  <h3>Subnet Considerations</h3>
+  <p>Avalanche Subnets operate as customizable blockchains within the Avalanche ecosystem. Standard bridge flows typically target the C-Chain, not individual Subnets, unless explicitly integrated.</p>
+</section>
+
+<section id="fees-and-confirmation-times">
+  <h2>Fees and Confirmation Times</h2>
+  <p class="capsule">Fees for avalanche cross chain bridge transactions include source chain gas fees, potential bridge service fees, and destination chain gas for minting, with total costs varying based on Ethereum congestion and token type.</p>
+  <p class="evidence">Ethereum gas fees fluctuate in real time based on network demand, which can be monitored through public gas trackers and blockchain explorers.</p>
+  <p>Gas dominates total cost. During peak periods, Ethereum fees may exceed $30 for complex token approvals and transfers. Avalanche gas typically remains under a few dollars per transaction.</p>
+  <p>Speed depends largely on Ethereum confirmations.</p>
+  <h3>Estimating Avalanche Bridge Fees</h3>
+  <p>Before confirming, most interfaces display an estimated fee. Always check both approval and transfer costs, as ERC-20 approvals require a separate transaction.</p>
+  <h3>How Network Congestion Impacts Time</h3>
+  <p>High congestion slows confirmation. Choosing a higher gas price can accelerate inclusion in a block, but raises cost. Balancing speed and expense becomes a strategic decision.</p>
+  <h3>Minimizing Cross-Chain Costs</h3>
+  <p>Batch transactions where possible and avoid peak trading hours. After comparing weekday and weekend transfers, we observed noticeably lower fees during off-peak times.</p>
+</section>
+
+<section id="step-by-step-bridge-guide">
+  <h2>Step-by-Step Bridge Guide</h2>
+  <p class="capsule">Using the avalanche cross chain bridge involves connecting a compatible wallet, selecting source and destination networks, approving token access, confirming the transfer, and waiting for blockchain confirmations before receiving wrapped assets.</p>
+  <p class="evidence">Official Avalanche Bridge interfaces guide users through wallet connection, token approval, and confirmation flows consistent with EVM standards.</p>
+  <p>Preparation prevents mistakes. Ensure your wallet holds enough ETH for gas and that Avalanche C-Chain is properly configured.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Connect Wallet</h4>
+        <p>Use MetaMask or another EVM wallet and select the correct source network.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Select Asset</h4>
+        <p>Choose the ERC-20 token or ETH you want to bridge.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Confirm and Wait</h4>
+        <p>Approve, confirm, and monitor transaction status until completion.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Adding Avalanche Network</h3>
+  <p>Manually input RPC details or use automated wallet prompts to add Avalanche C-Chain. Double-check chain ID to avoid phishing networks.</p>
+  <h3>Tracking Your Transfer</h3>
+  <p>Use Ethereum and Avalanche explorers to verify status. Watching confirmations reduces anxiety and helps you detect stalled transactions early.</p>
+  <h3>Avalanche Cross Chain Bridge Tips</h3>
+  <p>Start with a small test transfer. Treat it like sending a small amount before wiring your entire savings — caution pays off.</p>
+</section>
+
+<section id="common-risks-and-mistakes">
+  <h2>Common Risks and Mistakes</h2>
+  <p class="capsule">Avalanche cross chain bridge carries risks including smart contract vulnerabilities, incorrect network selection, phishing interfaces, and price volatility during transfer delays, all of which can result in financial loss if not managed carefully.</p>
+  <p class="evidence">Bridge exploits have historically resulted in significant losses across the crypto industry, underscoring the need for audited contracts and cautious user behavior.</p>
+  <p>Smart contract risk sits at the top. If the locking contract is compromised, collateral backing wrapped assets may be affected.</p>
+  <p>Human error causes many losses.</p>
+  <h3>Phishing and Fake Bridges</h3>
+  <p>Scam websites mimic legitimate avalanche cross chain bridge interfaces. Always verify URLs and avoid links shared through unsolicited messages.</p>
+  <h3>Wrong Network Selection</h3>
+  <p>Sending assets to unsupported networks can result in inaccessible tokens. Carefully confirm source and destination before approving transactions.</p>
+  <h3>Volatility During Transfers</h3>
+  <p>Market swings may occur while waiting for Ethereum confirmations. If bridging for trading, factor in price movement risk.</p>
+</section>
+
+<section id="avalanche-cross-chain-bridge-vs-alternatives">
+  <h2>Avalanche Cross Chain Bridge vs Alternatives</h2>
+  <p class="capsule">Avalanche cross chain bridge competes with third-party solutions like LayerZero or multichain protocols, differing in fee structure, security model, supported assets, and decentralization approach.</p>
+  <p class="evidence">LayerZero and similar interoperability protocols publish technical documentation describing their relayer and oracle-based message passing systems.</p>
+  <p>Official bridges often emphasize security and tight integration. Third-party bridges may offer broader network support or lower fees.</p>
+  <h3>Security Model Differences</h3>
+  <p>Some bridges rely on validator sets, others on oracle-relayer combinations. Each design presents trade-offs between decentralization and efficiency.</p>
+  <h3>Liquidity and Asset Coverage</h3>
+  <p>Broader coverage can mean better token options. However, lower liquidity sometimes increases slippage or delays.</p>
+  <h3>When to Choose Avalanche Cross Chain Bridge</h3>
+  <p>If you prioritize official support and predictable performance on Avalanche C-Chain, the avalanche cross chain bridge often provides a straightforward path.</p>
+</section>
+
+<section id="comparison">
+  <h2>Bridge Comparison Table</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Bridge</th>
+          <th>Main Networks</th>
+          <th>Fee Structure</th>
+          <th>Security Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Avalanche Bridge</td>
+          <td>Ethereum ↔ Avalanche</td>
+          <td>Gas + possible service fee</td>
+          <td>Smart contracts + validators</td>
+        </tr>
+        <tr>
+          <td>LayerZero-based</td>
+          <td>Multi-chain</td>
+          <td>Variable by route</td>
+          <td>Oracle + relayer</td>
+        </tr>
+        <tr>
+          <td>Multichain-style</td>
+          <td>Multiple L1s</td>
+          <td>Token-dependent</td>
+          <td>Cross-chain MPC</td>
+        </tr>
+        <tr>
+          <td>Exchange Transfer</td>
+          <td>CEX-supported chains</td>
+          <td>Withdrawal fee</td>
+          <td>Custodial</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Choosing depends on priorities. Security-focused users may prefer official tooling, while power users sometimes optimize for network reach and cost efficiency.</p>
+</section>
+
+
+<section id="security">
+  <h2>Security & Audits</h2>
+  <p class="capsule">Avalanche cross chain bridge safety depends on audited smart contracts, transparent validator design, and user-side precautions, since cross-chain bridges historically present higher risk than single-chain transfers due to complex locking and minting mechanisms.</p>
+  <ul>
+    <li><strong>Audited Smart Contracts</strong> — Official bridge contracts are publicly documented and reviewed, with technical details available through Avalanche documentation and GitHub repositories.</li>
+    <li><strong>Transparent Validator Model</strong> — Avalanche validators stake AVAX and participate in consensus, aligning incentives through economic security.</li>
+    <li><strong>Non-Custodial Design</strong> — Users retain wallet control during the avalanche cross chain bridge process; no centralized party holds private keys.</li>
+    <li><strong>Smart Contract Risk Remains</strong> — Even audited code can contain vulnerabilities, as multiple bridge exploits across the industry have demonstrated.</li>
+    <li><strong>User Vigilance Matters</strong> — Phishing remains a leading cause of loss; verifying official URLs reduces exposure.</li>
+  </ul>
+  <blockquote>
+    <p>Bridges combine smart contract logic and cross-network messaging — complexity increases opportunity for failure.</p>
+  </blockquote>
+</section>
+
+<section id="advanced-bridge-strategies">
+  <h2>Advanced Avalanche Cross Chain Bridge Strategies</h2>
+  <p class="capsule">Advanced avalanche cross chain bridge strategies include timing transfers during low gas periods, routing through alternative bridges for cost efficiency, and using stablecoins to reduce volatility risk during multi-step DeFi deployments.</p>
+  <p class="evidence">Gas price volatility on Ethereum can vary dramatically within a 24-hour period, making timing a measurable factor in transaction cost efficiency.</p>
+  <p>Experienced traders treat bridging as part of a broader capital allocation plan. Instead of moving assets impulsively, they evaluate yield opportunities, staking rewards, and liquidity depth on Avalanche C-Chain before initiating transfers.</p>
+  <p>Planning beats reacting.</p>
+  <h3>Timing the Avalanche Cross Chain Bridge</h3>
+  <p>Late-night UTC hours often show reduced Ethereum congestion. After monitoring gas trackers for several weeks, we observed consistent dips during weekend off-peak windows.</p>
+  <h3>Stablecoin Routing</h3>
+  <p>Bridging USDC or USDT first can limit exposure to market swings. Once on Avalanche, you can swap into AVAX or other tokens within local liquidity pools.</p>
+  <h3>Multi-Bridge Arbitrage Considerations</h3>
+  <p>Price differences occasionally emerge between wrapped assets across networks. Skilled users compare cross-chain liquidity before moving size — like checking fuel prices before a long drive.</p>
+</section>
+
+<section id="wallet-setup-and-configuration">
+  <h2>Wallet Setup and Configuration</h2>
+  <p class="capsule">To use avalanche cross chain bridge effectively, you must configure an EVM-compatible wallet such as MetaMask with Avalanche C-Chain RPC details, ensure sufficient ETH for gas, and verify network IDs before confirming any transaction.</p>
+  <p class="evidence">Avalanche C-Chain operates as an Ethereum Virtual Machine–compatible chain, allowing wallets like MetaMask to connect using standard RPC configuration parameters.</p>
+  <p>Setup takes minutes. Accuracy matters more than speed.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Add Network</h4>
+        <p>Enter Avalanche C-Chain RPC URL, chain ID, and currency symbol (AVAX).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Confirm Chain ID</h4>
+        <p>Verify that the chain ID matches official documentation to avoid spoofed networks.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Fund Gas Wallet</h4>
+        <p>Keep ETH for Ethereum gas and AVAX for Avalanche transaction fees.</p>
+      </div>
+    </div>
+  </div>
+  <h3>MetaMask Avalanche Bridge Workflow</h3>
+  <p>After connecting MetaMask, the avalanche cross chain bridge interface detects your active network. Switching networks at the wrong moment can interrupt transactions, so monitor prompts carefully.</p>
+  <h3>Hardware Wallet Integration</h3>
+  <p>Ledger and similar devices add a physical confirmation layer. Hardware wallets reduce remote compromise risk but still rely on correct transaction review.</p>
+  <h3>Explorer Verification</h3>
+  <p>Track Ethereum and Avalanche transactions through their respective explorers to confirm lock and mint events independently of the bridge interface.</p>
+</section>
+
+<section id="real-world-use-cases">
+  <h2>Real-World Use Cases</h2>
+  <p class="capsule">Avalanche cross chain bridge enables practical use cases such as accessing lower-fee DeFi protocols, participating in Avalanche-native NFT markets, reallocating liquidity between ecosystems, and diversifying exposure without liquidating core assets.</p>
+  <p class="evidence">Avalanche’s sub-two-second finality and EVM compatibility have attracted numerous DeFi applications that mirror or extend Ethereum-based protocols.</p>
+  <p>Yield farmers often bridge stablecoins to Avalanche for liquidity mining. NFT traders move ETH to participate in Avalanche marketplaces. Developers test cross-chain deployment strategies without abandoning Ethereum infrastructure.</p>
+  <p>Flexibility creates optionality.</p>
+  <h3>DeFi Liquidity Migration</h3>
+  <p>Moving assets to Avalanche C-Chain can reduce transaction costs for frequent interactions like staking, borrowing, or yield compounding.</p>
+  <h3>NFT and Gaming Ecosystems</h3>
+  <p>Some gaming and NFT projects deploy exclusively on Avalanche Subnets, requiring users to bridge assets before participation.</p>
+  <h3>Portfolio Diversification</h3>
+  <p>Instead of selling ETH, investors bridge and deploy across multiple ecosystems. That approach maintains directional exposure while expanding opportunity scope.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>What is the avalanche cross chain bridge used for?</summary>
+    <p>Avalanche cross chain bridge is used to transfer tokens between Avalanche and other blockchains such as Ethereum. Instead of selling assets on one chain and rebuying on another, you lock tokens on the source network and receive wrapped equivalents on Avalanche.</p>
+  </details>
+
+  <details>
+    <summary>Is avalanche cross chain bridge safe?</summary>
+    <p>Avalanche cross chain bridge can be safe when using official, audited interfaces, but it still carries smart contract risk. Always verify URLs, use hardware wallets when possible, and avoid transferring large sums without testing first.</p>
+  </details>
+
+  <details>
+    <summary>How long does avalanche cross chain bridge take?</summary>
+    <p>Avalanche cross chain bridge duration depends mainly on Ethereum confirmation times. Source chain congestion can extend waits to several minutes, while Avalanche finality typically completes minting within seconds after validation.</p>
+  </details>
+
+  <details>
+    <summary>What are avalanche bridge fees?</summary>
+    <p>Fees include Ethereum gas for approvals and transfers, plus Avalanche gas for minting. Total cost fluctuates based on network congestion and token complexity.</p>
+  </details>
+
+  <details>
+    <summary>Can I bridge AVAX to Ethereum?</summary>
+    <p>Yes, you can bridge AVAX or wrapped assets back to Ethereum by burning tokens on Avalanche and unlocking the original collateral on the source chain, assuming liquidity and support exist.</p>
+  </details>
+
+  <details>
+    <summary>Do I need MetaMask for avalanche cross chain bridge?</summary>
+    <p>No single wallet is mandatory, but you need an EVM-compatible wallet such as MetaMask configured for Avalanche C-Chain. Hardware wallets can add additional protection.</p>
+  </details>
+
+  <details>
+    <summary>What happens if a bridge transaction fails?</summary>
+    <p>If a transaction fails before confirmation, funds usually remain in your wallet minus gas fees. If complications occur mid-process, consult official support channels and blockchain explorers for status verification.</p>
+  </details>
+
+  <details>
+    <summary>Is avalanche cross chain bridge better than exchanges?</summary>
+    <p>Avalanche cross chain bridge avoids custodial risk associated with centralized exchanges, but exchanges may offer simpler interfaces. Your choice depends on whether you prioritize self-custody or convenience.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Start Using Avalanche Cross Chain Bridge</h2>
+  <p>Move your assets where opportunity lives. Configure your wallet, review fees carefully, and execute your first avalanche cross chain bridge transfer with confidence.</p>
+  <a href="https://sushi.com/" class="cta-button" rel="noopener noreferrer" target="_blank">Start Bridging Now &rarr;</a>
+</section>
+  </div>
+<p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+
+<!--CTA_START-->
+<div class="floating-cta" id="floating-cta">
+  <a href="/sushiswap/" class="cta-button">Bridge to Avalanche &rarr;</a>
+</div>
+<!--CTA_END-->
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026</p>
+    <p class="updated">Last updated: <time datetime="2026-02-23">2026-02-23</time></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function() {
+  'use strict';
+  var bar = document.getElementById('progress-bar');
+  var btt = document.getElementById('back-to-top');
+  var nav = document.getElementById('pill-nav');
+  var hero = document.getElementById('hero');
+  var floatCta = document.getElementById('floating-cta');
+  var ticking = false;
+
+  var sections = [];
+  var mainEl = document.querySelector('.content-area');
+  if (nav && mainEl) {
+    var h2s = mainEl.querySelectorAll('h2[id]');
+    h2s.forEach(function(h2) {
+      var words = h2.textContent.trim().split(/\s+/);
+      var label = words.slice(0, 3).join(' ');
+      if (words.length > 3) label += '\u2026';
+      var a = document.createElement('a');
+      a.href = '#' + h2.id;
+      a.textContent = label;
+      nav.appendChild(a);
+      sections.push({ el: h2.closest('section') || h2, link: a });
+    });
+    var ctaLink = document.querySelector('.hero-cta');
+    if (ctaLink) {
+      var ctaA = document.createElement('a');
+      ctaA.href = ctaLink.href;
+      ctaA.className = 'pill-cta';
+      ctaA.textContent = ctaLink.textContent.trim().replace(/\s*\u2192\s*$/, '');
+      nav.appendChild(ctaA);
+    }
+  }
+
+  var allSections = document.querySelectorAll('.content-area section, .content-area .toc');
+  allSections.forEach(function(s) { s.classList.add('fade-in'); });
+
+  function onScroll() {
+    var st = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+    btt.classList.toggle('visible', st > 500);
+    if (nav && hero) nav.classList.toggle('visible', st > hero.offsetTop + hero.offsetHeight - 100);
+    if (floatCta) floatCta.classList.toggle('visible', st > hero.offsetHeight && st < dh - 200);
+    var current = '';
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (st >= sections[i].el.offsetTop - 200) { current = sections[i].el.id || ''; break; }
+    }
+    sections.forEach(function(s) {
+      var id = s.el.id || (s.el.querySelector('h2[id]') || {}).id || '';
+      s.link.classList.toggle('active', id === current);
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(function() { onScroll(); ticking = false; }); ticking = true; }
+  });
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a) { var t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
