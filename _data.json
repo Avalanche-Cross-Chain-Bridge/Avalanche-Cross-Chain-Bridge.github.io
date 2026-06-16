@@ -1,0 +1,107 @@
+{
+ "keyword": "avalanche cross chain",
+ "h1": "Avalanche Cross Chain",
+ "brand": "Core Bridge",
+ "niche": "chain",
+ "verb": "Bridge",
+ "title": "Avalanche Cross Chain - Open App",
+ "meta_description": "avalanche cross chain routing for Core Bridge: connect wallet, review supported routes, and open the official Avalanche app securely.",
+ "palette": {
+  "mode": "dark",
+  "bg": "#000000",
+  "accent": "#E84142",
+  "ink": "#FFFFFF"
+ },
+ "hero_h2": "Move assets across networks through Core",
+ "hero_lead": "avalanche cross chain access belongs in Core, where users can connect a wallet, review the route, and open the official bridge experience for supported network transfers.",
+ "badge": "Avalanche",
+ "widget": {
+  "from": "ETH",
+  "from_net": "Ethereum",
+  "to": "AVAX",
+  "to_net": "Avalanche C-Chain",
+  "action": "Open Core Bridge App"
+ },
+ "trust": [
+  "Official Core app route",
+  "Built by Ava Labs",
+  "C-Chain is EVM-compatible"
+ ],
+ "what_is": "Core Bridge is the app-first route for moving supported assets between external networks and the Avalanche ecosystem. Avalanche is a multi-chain platform with a Primary Network of X-Chain, C-Chain, and P-Chain, described in the <a href=\"https://docs.avax.network/academy/avalanche-l1/avalanche-fundamentals/03-multi-chain-architecture-intro/02-primary-network\">Avalanche Primary Network docs</a>.",
+ "how": [
+  {
+   "t": "Open Core",
+   "d": "Go to the verified Core Bridge URL and connect a compatible wallet."
+  },
+  {
+   "t": "Choose route",
+   "d": "Select the source network, destination network, and supported asset shown in the app."
+  },
+  {
+   "t": "Review details",
+   "d": "Check the domain, token, receiving address, route, and any wallet prompts before signing."
+  },
+  {
+   "t": "Confirm in wallet",
+   "d": "Approve only the transactions you understand, then track the transfer from the app or explorer."
+  }
+ ],
+ "points": [
+  {
+   "h": "Native ecosystem design",
+   "p": "Avalanche supports a multi-chain architecture, and its docs explain how <a href=\"https://docs.avax.network/academy/avalanche-l1/avalanche-fundamentals/05-interoperability/03-icm-icmContracts-and-ictt\">ICM and ICTT</a> enable cross-network messaging and token transfer patterns."
+  },
+  {
+   "h": "App-forward path",
+   "p": "The landing page should send users directly to Core Bridge instead of imitating wallet actions or asking for seed phrases."
+  },
+  {
+   "h": "Verification first",
+   "p": "Users should confirm core.app, wallet prompts, token contracts, and network names before approving any bridge transaction."
+  }
+ ],
+ "eeat": [
+  {
+   "text": "Avalanche official site",
+   "url": "https://www.avax.network/"
+  },
+  {
+   "text": "Avalanche interoperability docs",
+   "url": "https://docs.avax.network/academy/avalanche-l1/avalanche-fundamentals/05-interoperability/03-icm-icmContracts-and-ictt"
+  },
+  {
+   "text": "Avalanche explorer",
+   "url": "https://subnets.avax.network/"
+  }
+ ],
+ "faq": [
+  {
+   "q": "What is avalanche cross chain?",
+   "a": "It refers to moving assets or messages across Avalanche-connected networks, including routes that involve Avalanche C-Chain, Avalanche L1s, or external chains through supported bridge infrastructure.",
+   "open": true
+  },
+  {
+   "q": "Where do I open avalanche cross chain app?",
+   "a": "Use the official Core Bridge app at <a href=\"https://core.app/bridge\">core.app/bridge</a> and verify the domain before connecting a wallet.",
+   "open": false
+  },
+  {
+   "q": "Does avalanche cross chain use the C-Chain?",
+   "a": "Many user-facing Avalanche DeFi routes involve the C-Chain because it is EVM-compatible, but the exact source and destination networks depend on the route shown inside Core.",
+   "open": false
+  },
+  {
+   "q": "Is avalanche cross chain a separate wallet?",
+   "a": "No. It is an intent around cross-network movement; Core is the wallet and app surface used to access supported bridge routes.",
+   "open": false
+  },
+  {
+   "q": "What should I check before an avalanche cross chain transfer?",
+   "a": "Verify the URL, selected networks, asset, receiving address, gas asset, and wallet approval text before signing any transaction.",
+   "open": false
+  }
+ ],
+ "official_url": "https://core.app/bridge",
+ "official_domain": "core.app",
+ "footer_note": "This site is not the official app; verify core.app before connecting; educational content only, not financial advice."
+}
