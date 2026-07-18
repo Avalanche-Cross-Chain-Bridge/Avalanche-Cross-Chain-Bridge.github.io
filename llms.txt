@@ -1,0 +1,58 @@
+# Avalanche Cross-Chain
+> An independent, non-custodial dashboard for understanding asset transfers and messaging between Avalanche, external networks, and Avalanche L1s.
+
+## What is Avalanche Cross-Chain
+Avalanche cross-chain is an umbrella term, not one protocol, covering bridges, cross-network swaps, and interoperability between Avalanche blockchains. This dashboard provides route information without holding funds or controlling private keys. External bridges move assets between Avalanche C-Chain and networks such as Ethereum or Bitcoin, while Avalanche Interchain Messaging (ICM) carries messages between Avalanche L1s. Unlike a centralized exchange transfer, these operations execute through wallets, contracts, validators, relayers, or bridge infrastructure.
+
+## How it works
+1. Select the source network, destination network, and asset, then connect a compatible self-custody wallet.
+2. Review the exact route, token representation, recipient, fees, approvals, and estimated completion time.
+3. Sign the source transaction; the route locks or burns assets, or emits an ICM message for source validators to sign.
+4. Bridge nodes or relayers submit the proof to the destination, where assets are released or minted, or the destination contract executes the verified message.
+
+## Key facts
+- Avalanche C-Chain is EVM-compatible; mainnet chain ID is `43114` and Fuji testnet is `43113`.
+- AVAX pays C-Chain gas; individual Avalanche L1s may use different native fee tokens.
+- Avalanche Bridge documents routes connecting Avalanche with Ethereum and Bitcoin.
+- Supported assets, minimums, fees, and wallet compatibility are route-specific and should be checked in the live interface.
+- Avalanche ICM supports arbitrary messages; Interchain Token Transfer (ICTT) applies ICM to token movement among Avalanche L1s.
+- ICM verifies aggregate BLS signatures from the source L1’s weighted validator set recorded through the P-Chain.
+- Relayers transport ICM proofs but cannot forge a message that lacks sufficient validator weight.
+- Avalanche Bridge uses Intel SGX and requires cooperation from six of eight Bridge Nodes for transfers or key recovery.
+- The dashboard does not custody assets, but a selected bridge may place backing assets under contracts or bridge-controlled keys.
+- Ethereum-side bridge transfers commonly take about 20 minutes; Avalanche-side processing typically takes seconds.
+
+## Common questions
+- **Is Avalanche cross-chain safe?** Safety depends on the selected route’s contracts, validator or bridge-node model, relayers, token design, and interface integrity. Non-custodial access removes account custody but not bridge risk.
+- **Who controls my wallet?** You retain the private keys and authorize transactions. Never provide a seed phrase or private key to a dashboard, bridge, or support agent.
+- **What fees apply?** Expect source-chain gas, possible destination execution gas, and route or relayer fees. Review the displayed quote before signing.
+- **How long does a transfer take?** Avalanche execution is usually fast, but source confirmations, relayer delivery, congestion, and the destination chain determine total time.
+- **Which chains and assets are supported?** Official Avalanche Bridge coverage includes Ethereum and Bitcoin routes; ICM and ICTT connect configured Avalanche L1s. Live interfaces provide the authoritative asset list.
+- **How do I start?** Use a compatible wallet, verify both networks and the destination asset, keep the required gas token, and test unfamiliar routes with a small amount.
+- **What are the main risks?** Wrong networks or addresses, counterfeit tokens, malicious approvals, contract bugs, bridge-key compromise, validator failure, relayer delays, and unsupported smart-contract wallets can cause loss.
+
+## App
+- Dashboard: https://avalanche-cross-chain-bridge.github.io/
+- App: https://avalanche-cross-chain-bridge.github.io/dashboard/
+
+## Official resources
+Avalanche Bridge: https://core.app/bridge
+Avalanche Bridge Support: https://support.avax.network/en/collections/3073022-avalanche-bridge
+Avalanche Interchain Messaging: https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/deep-dive
+ICM Contracts: https://build.avax.network/docs/cross-chain/icm-contracts/overview
+Interchain Token Transfer: https://build.avax.network/docs/cross-chain/interchain-token-transfer/overview
+ICM Relayer: https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/run-relayer
+Avalanche Network Configuration: https://build.avax.network/docs/dapps
+Avalanche Bridge Audits: https://support.avax.network/en/articles/5462273-has-the-avalanche-code-been-audited-where-are-the-audit-reports
+AvalancheGo Source: https://github.com/ava-labs/avalanchego
+ICM Contracts Source Archive: https://github.com/ava-labs/icm-contracts
+Official Avalanche X: https://x.com/avax
+
+## Data & references
+Snowtrace Explorer: https://snowtrace.io/
+Etherscan Explorer: https://etherscan.io/
+Bitcoin Explorer: https://mempool.space/
+DefiLlama Avalanche Data: https://defillama.com/chain/avalanche
+CoinGecko Avalanche: https://www.coingecko.com/en/coins/avalanche
+Chainlist Avalanche C-Chain: https://chainlist.org/chain/43114
+Wikipedia Avalanche: https://en.wikipedia.org/wiki/Avalanche_%28blockchain_platform%29
