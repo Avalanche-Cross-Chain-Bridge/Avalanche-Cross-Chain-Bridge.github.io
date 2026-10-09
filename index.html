@@ -8,95 +8,236 @@
 <link rel="canonical" href="https://avalanche-cross-chain-bridge.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Avalanche Cross-Chain Bridge">
+<meta property="og:description" content="Use an Avalanche Cross-Chain Bridge to move ETH, USDC and tokens between Ethereum and the Avalanche C-Chain. Check the route, fee and amount received before you sign, and keep your own keys.">
 <meta property="og:url" content="https://avalanche-cross-chain-bridge.github.io/">
 <meta property="og:image" content="https://avalanche-cross-chain-bridge.github.io/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Avalanche Cross-Chain Bridge">
+<meta name="twitter:description" content="Use an Avalanche Cross-Chain Bridge to move ETH, USDC and tokens between Ethereum and the Avalanche C-Chain. Check the route, fee and amount received before you sign, and keep your own keys.">
+<meta name="twitter:image" content="https://avalanche-cross-chain-bridge.github.io/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://avalanche-cross-chain-bridge.github.io/#website", "url": "https://avalanche-cross-chain-bridge.github.io/", "name": "Avalanche Cross-Chain Bridge — Move Assets In & Out"}, {"@type": "WebPage", "@id": "https://avalanche-cross-chain-bridge.github.io/#webpage", "url": "https://avalanche-cross-chain-bridge.github.io/", "name": "Avalanche Cross-Chain Bridge — Move Assets In & Out", "isPartOf": {"@id": "https://avalanche-cross-chain-bridge.github.io/#website"}, "description": "Use an Avalanche Cross-Chain Bridge to move ETH, USDC and tokens between Ethereum and the Avalanche C-Chain. Check the route, fee and amount received before you sign, and keep your own keys.", "datePublished": "2026-10-09", "dateModified": "2026-10-09"}, {"@type": "SoftwareApplication", "name": "Avalanche Cross-Chain Bridge", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://avalanche-cross-chain-bridge.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Bridges"}, {"@type": "ListItem", "position": 3, "name": "Avalanche Cross-Chain Bridge"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need AVAX for an Avalanche Cross-Chain Bridge?", "acceptedAnswer": {"@type": "Answer", "text": "You pay source-chain gas to send, and you need a little AVAX on the C-Chain to move assets once they arrive."}}, {"@type": "Question", "name": "How long does a cross-chain transfer to Avalanche take?", "acceptedAnswer": {"@type": "Answer", "text": "Usually minutes, after your source transaction gets enough confirmations; busy periods take longer."}}, {"@type": "Question", "name": "Can I bridge back from Avalanche to Ethereum?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the route works both ways; you pay C-Chain gas in AVAX to send and Ethereum gas to receive."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You connect a self-custody wallet and bridge on-chain, with no sign-up and no custody."}}, {"@type": "Question", "name": "What if a transfer stays pending?", "acceptedAnswer": {"@type": "Answer", "text": "Pending transfers usually clear once the network is less busy; a reverted source transaction leaves your assets intact minus gas."}}]}]}</script>
 <style>
 :root{--bg:#0B0D12;--surface:#12151C;--text:#EAEEF4;--muted:#8A93A3;--accent:#E84142;--accent-ink:#FFFFFF;--radius:14px;--display:"Sora";--body:"Inter"}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font:16px/1.65 var(--body),system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.caecbd1{max-width:1040px;margin:0 auto;padding:0 20px}
-a{color:inherit;text-decoration:none}
-.c12bda4{border:0;border-top:1px solid color-mix(in srgb,var(--text) 10%,transparent);margin:0}
-.c26665e{display:flex;align-items:center;justify-content:space-between;height:68px}
-.c884312{font:700 18px var(--display),sans-serif}
-.c11727b{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font:600 15px var(--body),sans-serif;border:0;border-radius:calc(var(--radius) * .7);padding:12px 22px;cursor:pointer}
-.c11727b.c20f444{background:transparent;color:var(--text);border:1px solid color-mix(in srgb,var(--text) 18%,transparent)}
-.c1168a2{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;padding:18px 0 6px;flex-wrap:wrap}
-.c1168a2 a:hover{color:var(--text)}
-.c8aadfd{padding:26px 0 30px}
-.c0bd5f4{display:inline-block;font:600 12px var(--body),sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-h1{font:700 clamp(34px,5vw,56px)/1.05 var(--display),sans-serif;letter-spacing:-.03em;max-width:16ch}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:2rem}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.7 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--accent-ink)}
+a{color:var(--text);text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+a,input,summary{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+img,svg{max-width:100%;vertical-align:middle}
+img{height:auto}
+h1,h2,h3,h4,h5,h6{font-family:var(--display);line-height:1.15;letter-spacing:-.035em;text-wrap:balance}
+p{margin:0 0 1.25rem}
+.cd064e9{width:min(1180px,calc(100% - 4rem));margin-inline:auto}
+.ccde29d{position:absolute;top:1rem;left:1rem;transform:translateY(-180%);z-index:5;padding:.65rem 1rem;background:var(--surface);border-radius:var(--radius)}
+.ccde29d:focus{transform:translateY(0)}
+.c26665e{min-height:96px;display:flex;align-items:center;justify-content:space-between;gap:2rem;border-bottom:1px solid color-mix(in srgb,var(--text) 10%,transparent)}
+.c884312{display:flex;align-items:center;gap:.75rem;font:650 1.15rem/1.2 var(--display);letter-spacing:-.035em}
+.ca8fa0f{display:grid;place-items:center;width:38px;height:38px;background:var(--accent);color:var(--accent-ink);border-radius:var(--radius)}
+.ccf0cbf{width:20px;height:20px;fill:none;stroke:var(--text);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.ca8fa0f .ccf0cbf,.c79f7e6 .ccf0cbf{stroke:var(--accent-ink)}
+.cba127d{display:flex;align-items:center;gap:1.75rem;font-size:.875rem;font-weight:550}
+.cba127d a{text-decoration:none}
+.cba127d .c01d40b{padding:.6rem 1rem;background:var(--surface);border:1px solid color-mix(in srgb,var(--text) 13%,transparent);border-radius:var(--radius)}
+.cb81b66{padding-block:1.6rem .5rem;font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+.c1168a2{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;list-style:none;padding:0;margin:0;color:var(--muted)}
+.c1168a2 a{color:var(--muted);text-decoration:none}
+.c1168a2 a:hover{color:var(--text);text-decoration:underline}
+.c8aadfd{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:center;padding-block:3.5rem 5.5rem}
+.cff7922{min-width:0}
+.c0bd5f4{display:flex;align-items:center;gap:.6rem;margin-bottom:1.4rem;color:var(--muted);font-size:.875rem}
+.c0bd5f4::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 12%,transparent)}
+h1{font-size:clamp(2.65rem,4.7vw,4.7rem);font-weight:600;margin:0 0 1.5rem;overflow-wrap:anywhere}
 h1 em{font-style:normal;color:var(--accent)}
-.cc62308{color:var(--muted);font-size:clamp(17px,1.7vw,20px);margin:18px 0 24px;max-width:60ch}
-.c79f7e6{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.c0f6a96{display:flex;gap:10px;align-items:center;margin-top:22px;color:var(--muted);font-size:14px}
-.c0f6a96 img{vertical-align:middle}
-/* таблица фактов */
-.c9e98d6{width:100%;border-collapse:collapse;margin:8px 0 8px;background:var(--surface);border:1px solid color-mix(in srgb,var(--text) 10%,transparent);border-radius:var(--radius);overflow:hidden}
-.c9e98d6 th,.c9e98d6 td{text-align:left;padding:13px 18px;font-size:15px;border-top:1px solid color-mix(in srgb,var(--text) 8%,transparent)}
-.c9e98d6 tr:first-child th,.c9e98d6 tr:first-child td{border-top:0}
-.c9e98d6 th{color:var(--muted);font-weight:600;width:42%}
-.cd8df17{padding:6px 0 10px}
-.cd8df17 h2{font:600 13px var(--body),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-/* контент */
-.c48eeed{padding:18px 0 10px;max-width:760px}
-.c3f2fb4{padding:24px 0;border-top:1px solid color-mix(in srgb,var(--text) 9%,transparent)}
-.c479973{font:700 clamp(21px,2.4vw,28px) var(--display),sans-serif;letter-spacing:-.02em;margin-bottom:10px}
-.c0a0597{color:var(--muted)}
-.c0a0597 strong{color:var(--text)}
-.cc3d40c{border-top:1px solid color-mix(in srgb,var(--text) 9%,transparent);padding:4px 0}
-.cc2fd87{font:600 17px var(--display),sans-serif;cursor:pointer;padding:15px 0;list-style:none}
-.c99953f{color:var(--muted);padding:0 0 15px}
-.c55bd5c{padding:22px 0}
-.c55bd5c h2{font:600 13px var(--body),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.cda0b71{list-style:none;display:flex;flex-direction:column;gap:7px}
-.ce56ea9{color:var(--accent)}.ce56ea9:hover{text-decoration:underline}
-footer{border-top:1px solid color-mix(in srgb,var(--text) 9%,transparent);padding:26px 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cc62308{font-size:1.075rem;line-height:1.85;color:var(--muted);max-width:48ch;margin-bottom:2rem}
+.c79f7e6{display:inline-flex;align-items:center;justify-content:center;gap:1.4rem;min-height:52px;padding:.85rem 1.4rem;background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 88%,var(--surface)),var(--accent));color:var(--accent-ink);font-weight:650;font-size:.9rem;text-decoration:none;border:1px solid color-mix(in srgb,var(--accent) 80%,var(--text));border-radius:var(--radius);box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 18%,transparent);transition:transform .18s ease,box-shadow .18s ease}
+.c79f7e6:hover{color:var(--accent-ink);transform:translateY(-2px);box-shadow:0 9px 24px color-mix(in srgb,var(--accent) 25%,transparent)}
+.cee4cc3{position:relative;isolation:isolate;min-width:0;background:var(--surface);border:1px solid color-mix(in srgb,var(--text) 10%,transparent);border-radius:var(--radius);box-shadow:0 24px 65px -28px color-mix(in srgb,var(--text) 28%,transparent),0 3px 10px color-mix(in srgb,var(--text) 4%,transparent)}
+.cee4cc3::before{content:"";position:absolute;inset:-1.5rem;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 80% 15%,color-mix(in srgb,var(--accent) 13%,transparent),color-mix(in srgb,var(--accent) 0%,transparent) 68%);border-radius:var(--radius)}
+.c50d15e{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 1.75rem;border-bottom:1px solid color-mix(in srgb,var(--text) 9%,transparent)}
+.c50d15e h2{font-size:1.2rem;font-weight:600;margin:0}
+.cd19fa4{font-size:.72rem;line-height:1.4;color:var(--muted);padding:.35rem .65rem;border:1px solid color-mix(in srgb,var(--text) 10%,transparent);border-radius:var(--radius)}
+.c89045a{padding:1.6rem 1.75rem 1.75rem}
+.c4ba0e4{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);align-items:center;gap:.6rem;margin-bottom:1.5rem}
+.ce7db7d{min-width:0;display:flex;align-items:center;gap:.75rem;padding:.85rem;background:var(--bg);border:1px solid color-mix(in srgb,var(--text) 7%,transparent);border-radius:var(--radius)}
+.c3fd16d{font-size:.75rem;color:var(--muted)}
+.c961974{display:flex;align-items:center;justify-content:center;min-width:0;overflow-wrap:anywhere;line-height:1.25;font-size:.8rem}
+.c961974 img,.c961974 svg{width:32px;max-height:32px;object-fit:contain}
+.c33a8ca{display:grid;place-items:center;height:36px;border:1px solid color-mix(in srgb,var(--text) 10%,transparent);border-radius:50%}
+.c822c1a{display:block;margin-bottom:.5rem;font-size:.825rem;font-weight:550}
+.cc70532{display:flex;align-items:center;gap:.5rem;padding:.8rem 1rem;background:var(--bg);border:1px solid color-mix(in srgb,var(--text) 18%,transparent);border-radius:var(--radius)}
+.cc70532:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 13%,transparent)}
+.cc70532 input{width:100%;min-width:0;padding:0;border:0;outline:none;background:var(--bg);color:var(--text);font:550 2rem/1.3 var(--display);font-variant-numeric:tabular-nums}
+.cc70532 input::placeholder{color:var(--muted)}
+.cb8a509{font-size:.8rem;color:var(--muted)}
+.c881002{font-size:.72rem;line-height:1.6;color:var(--muted);margin:.6rem 0 1.3rem}
+.cb2316d{font-size:.8rem;color:var(--text);margin:.6rem 0}
+[hidden]{display:none!important}
+.c590a12{padding:1.2rem;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--surface)),color-mix(in srgb,var(--accent) 3%,var(--surface)));border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);border-radius:var(--radius)}
+.cfc1190{display:block;color:var(--muted);font-size:.78rem;margin-bottom:.3rem}
+.cda3a5c{display:block;font:600 clamp(1.9rem,3vw,2.6rem)/1.2 var(--display);letter-spacing:-.045em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.c01ebdf{font:400 .8rem/1.5 var(--body);letter-spacing:0;color:var(--muted)}
+.c68a6b4{display:grid;gap:.6rem;margin:1rem 0 0;padding-top:.9rem;border-top:1px solid color-mix(in srgb,var(--text) 10%,transparent);font-size:.8rem}
+.c68a6b4 div{display:flex;justify-content:space-between;gap:1rem}
+.c68a6b4 dt{color:var(--muted)}
+.c68a6b4 dd{margin:0;text-align:right;font-weight:550;font-variant-numeric:tabular-nums}
+.cee4cc3 .c79f7e6{display:flex;width:100%;margin-top:1.25rem;justify-content:space-between}
+.c635836{margin-top:1rem;color:var(--muted);font-size:.75rem}
+.c635836 summary{cursor:pointer;text-underline-offset:.2em}
+.c635836 summary:hover{color:var(--text)}
+.c635836 p{margin:.7rem 0 0;line-height:1.7}
+.ce16cc6{padding:2rem 2.25rem;background:var(--surface);border:1px solid color-mix(in srgb,var(--text) 10%,transparent);border-radius:var(--radius)}
+.cb17531{font-size:1.4rem;font-weight:600;margin:0 0 1.4rem}
+.cd26868{overflow-x:auto}
+.c9e98d6{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem}
+.c9e98d6 caption{text-align:left;color:var(--muted);padding-bottom:1rem}
+.c9e98d6 th,.c9e98d6 td{padding:1rem 1.1rem;border-bottom:1px solid color-mix(in srgb,var(--text) 9%,transparent);vertical-align:top;overflow-wrap:anywhere}
+.c9e98d6 th{font-weight:550;color:var(--muted)}
+.c9e98d6 th:first-child,.c9e98d6 td:first-child{padding-left:0}
+.c9e98d6 th:last-child,.c9e98d6 td:last-child{padding-right:0}
+.c9e98d6 tbody tr:last-child>*{border-bottom:0}
+.c48eeed{width:min(800px,100%);margin:4.5rem auto}
+.c3f2fb4{margin-bottom:3.25rem;scroll-margin-top:2rem}
+.c479973{font:600 clamp(1.65rem,3vw,2.3rem)/1.2 var(--display);letter-spacing:-.035em;margin:0 0 1.25rem;text-wrap:balance}
+.c0a0597{color:var(--muted);font:400 1rem/1.85 var(--body);overflow-wrap:anywhere}
+.c0a0597 h3,.c0a0597 h4{color:var(--text);margin:1.8rem 0 .8rem}
+.c0a0597 strong{color:var(--text);font-weight:600}
+.c0a0597 a,.c99953f a,.ce56ea9 a{text-decoration-color:color-mix(in srgb,var(--accent) 60%,var(--text))}
+.c0a0597 ul,.c0a0597 ol,.c99953f ul,.c99953f ol{padding-left:1.4rem}
+.c0a0597 li+li,.c99953f li+li{margin-top:.5rem}
+.c0a0597 blockquote{margin:1.8rem 0;padding:.3rem 0 .3rem 1.25rem;border-left:3px solid var(--accent);color:var(--text)}
+.c0a0597 blockquote p:last-child{margin-bottom:0}
+.c0a0597 table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+.c0a0597 th,.c0a0597 td{padding:.75rem;border:1px solid color-mix(in srgb,var(--text) 12%,transparent);text-align:left}
+.c0a0597 code,.c0a0597 pre{font-family:var(--body);background:var(--surface);border-radius:var(--radius)}
+.c0a0597 pre{padding:1rem;overflow-x:auto}
+.cc3d40c{margin:.85rem 0;background:var(--surface);border:1px solid color-mix(in srgb,var(--text) 11%,transparent);border-radius:var(--radius);overflow:hidden}
+.cc2fd87{position:relative;list-style:none;cursor:pointer;padding:1.3rem 3.8rem 1.3rem 1.4rem;font:550 1.05rem/1.5 var(--display);color:var(--text)}
+.cc2fd87::-webkit-details-marker{display:none}
+.cc2fd87::after{content:"+";position:absolute;right:1.4rem;top:1.25rem;font:400 1.4rem/1.2 var(--body);color:var(--muted)}
+.cc3d40c[open]>.cc2fd87::after{content:"−"}
+.cc3d40c[open]{border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.cc2fd87:focus-visible{outline-offset:-5px}
+.c99953f{padding:0 1.4rem 1.4rem;color:var(--muted);font-size:.95rem;line-height:1.8;overflow-wrap:anywhere}
+.c99953f p:last-child{margin-bottom:0}
+.c0d722c{padding:2rem 0 3rem;border-top:1px solid color-mix(in srgb,var(--text) 12%,transparent)}
+.cda0b71{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 2rem;list-style:none;padding:0;margin:0}
+.ce56ea9{font-size:.85rem;color:var(--muted);overflow-wrap:anywhere;padding:.65rem 0}
+.c09385b{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:1.6rem 2rem;border-top:1px solid color-mix(in srgb,var(--text) 10%,transparent);font-size:.8rem;color:var(--muted)}
+.c09385b p{margin:0}
+.c09385b a{color:var(--muted)}
+@media(min-width:1500px){.c8aadfd{padding-block:5rem 6rem}}
+@media(max-width:900px){.c8aadfd{gap:2rem}.c50d15e,.c89045a{padding:1.25rem}.ce7db7d{padding:.65rem;gap:.5rem}.cba127d{gap:1rem}}
+@media(max-width:760px){.cd064e9{width:calc(100% - 2.5rem)}.c26665e{min-height:80px;gap:1rem}.cba127d .c391f69{display:none}.c8aadfd{grid-template-columns:1fr;padding-block:2.5rem 3rem;gap:2.5rem}.cff7922{max-width:600px}h1{font-size:clamp(2.6rem,9vw,4rem)}.cc62308{max-width:55ch}.cee4cc3{width:100%;max-width:520px;justify-self:center}.cee4cc3::before{inset:-.75rem}.ce16cc6{padding:1.5rem}.c48eeed{margin-block:3rem}.cda0b71{grid-template-columns:1fr;gap:.25rem}.c09385b{align-items:flex-start;flex-direction:column;gap:.6rem}}
+@media(max-width:380px){.cd064e9{width:calc(100% - 2rem)}.c884312{font-size:1rem;gap:.5rem}.ca8fa0f{width:30px;height:30px}.cba127d .c01d40b{padding:.55rem .7rem}.c50d15e,.c89045a{padding:1rem}.c4ba0e4{gap:.4rem;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr)}.c33a8ca{height:28px}.ce7db7d{flex-direction:column;align-items:flex-start}.ce16cc6{padding:1.1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.c79f7e6{transition:none}}
 </style>
 </head>
 <body>
-<div class="caecbd1">
-  <nav class="c26665e"><span class="c884312">Avalanche Cross-Chain Bridge</span><a class="c11727b" href="dashboard/">Open app</a></nav>
+<a class="ccde29d" href="#content">Skip to content</a>
+<div class="cd064e9">
+<nav class="c26665e" aria-label="Primary navigation">
+<div class="c884312"><span class="ca8fa0f" aria-hidden="true"><svg class="ccf0cbf" viewBox="0 0 24 24"><path d="M5 8h14m-4-4 4 4-4 4M19 16H5m4-4-4 4 4 4"/></svg></span>Transfer guide</div>
+<div class="cba127d"><a class="c391f69" href="#key-facts">Key facts</a><a class="c391f69" href="#sources">Sources</a><a class="c01d40b" href="dashboard/">Open app <span aria-hidden="true">↗</span></a></div>
+</nav>
+<div class="cb81b66"><nav class="c1168a2" aria-label="Breadcrumb"><a href="dashboard/">Home</a> <span>/</span> <span>Bridges</span> <span>/</span> <span>Avalanche Cross-Chain Bridge</span></nav></div>
+<header class="c8aadfd">
+<div class="cff7922">
+<p class="c0bd5f4">Plan your transfer</p>
+<h1>Avalanche <em>Cross-Chain</em> Bridge.</h1>
+<p class="cc62308">An Avalanche Cross-Chain Bridge moves ETH, USDC and other tokens between Ethereum and the Avalanche C-Chain, and onward to Avalanche subnets, so assets can work wherever the liquidity is. You review the route, fee and amount received before signing, pay destination gas in AVAX, and hold your own keys throughout.</p>
+<a class="c79f7e6" href="dashboard/">Start a transfer <svg class="ccf0cbf" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
 </div>
-<hr class="c12bda4">
-<div class="caecbd1">
-  <nav class="c1168a2" aria-label="Breadcrumb"><a href="dashboard/">Home</a> <span>/</span> <span>Bridges</span> <span>/</span> <span>Avalanche Cross-Chain Bridge</span></nav>
-  <header class="c8aadfd">
-    <span class="c0bd5f4">On-chain · self-custody</span>
-    <h1>Avalanche <em>Cross-Chain</em> Bridge.</h1>
-    <p class="cc62308">An Avalanche Cross-Chain Bridge moves ETH, USDC and other tokens between Ethereum and the Avalanche C-Chain, and onward to Avalanche subnets, so assets can work wherever the liquidity is. You review the route, fee and amount received before signing, pay destination gas in AVAX, and hold your own keys throughout.</p>
-    <div class="c79f7e6"><a class="c11727b" href="dashboard/">Start now</a><a class="c11727b c20f444" href="#faq">Read the details</a></div>
-    <div class="c0f6a96"><img src="assets/tokens/eth.svg" alt="Ethereum" width="28" height="28"> <img src="assets/tokens/avalanche.svg" alt="Avalanche" width="28" height="28"> <span>Supported assets and networks</span></div>
-  </header>
-
-  <section class="cd8df17"><h2>Key facts</h2><table class="c9e98d6"><tbody><tr><th scope="row">Direction</th><td>Ethereum ⇄ Avalanche C-Chain & subnets</td></tr>
+<aside class="cee4cc3" aria-labelledby="estimator-title">
+<div class="c50d15e"><h2 id="estimator-title">Transfer estimator</h2><span class="cd19fa4">Fee &amp; time</span></div>
+<div class="c89045a">
+<div class="c4ba0e4">
+<div class="ce7db7d"><span class="c3fd16d">From</span><div class="c961974"><img src="assets/tokens/eth.svg" alt="Ethereum" width="28" height="28"></div></div>
+<span class="c33a8ca" aria-hidden="true"><svg class="ccf0cbf" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span>
+<div class="ce7db7d"><span class="c3fd16d">To</span><div class="c961974"><img src="assets/tokens/avalanche.svg" alt="Avalanche" width="28" height="28"></div></div>
+</div>
+<label class="c822c1a" for="amount">Amount to send</label>
+<div class="cc70532"><input id="amount" type="text" inputmode="decimal" value="1000" maxlength="20" autocomplete="off" spellcheck="false" aria-describedby="amount-help amount-error"><span class="cb8a509">units</span></div>
+<p class="c881002" id="amount-help">Enter 1–1,000,000 units. Use a point or comma for decimals.</p>
+<p class="cb2316d" id="amount-error" role="status" hidden></p>
+<div class="c590a12" aria-live="polite" aria-atomic="true">
+<span class="cfc1190">Estimated amount after fee</span>
+<div class="cda3a5c"><output id="net" for="amount">—</output> <span class="c01ebdf">units</span></div>
+<dl class="c68a6b4"><div><dt>Estimated fee</dt><dd><output id="fee" for="amount">—</output></dd></div><div><dt>Estimated time</dt><dd><output id="time" for="amount">—</output></dd></div></dl>
+</div>
+<a class="c79f7e6" href="dashboard/">Continue to dashboard <svg class="ccf0cbf" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+<details class="c635836"><summary>How the estimate is calculated</summary><p>Fee = 0.50 units + 0.25% of the amount, rounded to two decimals. The remaining amount is the input minus the fee. Time starts at 2 minutes and adds one minute per tenfold increase in amount, rounded up; the upper estimate adds 3 minutes.</p></details>
+<noscript><p class="c881002">Enable JavaScript to calculate the fee and time from your amount.</p></noscript>
+</div>
+</aside>
+</header>
+<section class="ce16cc6" id="key-facts" aria-labelledby="facts-title"><h2 class="cb17531" id="facts-title">Key facts</h2><div class="cd26868"><table class="c9e98d6"><tbody><tr><th scope="row">Direction</th><td>Ethereum ⇄ Avalanche C-Chain & subnets</td></tr>
 <tr><th scope="row">Assets</th><td>ETH, USDC, USDT, WBTC and more</td></tr>
 <tr><th scope="row">Destination gas</th><td>AVAX on the C-Chain</td></tr>
 <tr><th scope="row">Typical time</th><td>Minutes, after source confirmations</td></tr>
-<tr><th scope="row">Custody</th><td>Self-custody — your keys throughout</td></tr></tbody></table></section>
-
-  <main class="c48eeed" id="faq">
-    <section class="c3f2fb4"><h2 class="c479973">How an Avalanche Cross-Chain Bridge works</h2><div class="c0a0597"><strong>You lock or burn assets on the source chain and receive them on the destination.</strong> An Avalanche Cross-Chain Bridge routes your transfer between Ethereum and the C-Chain, shows the amount that will arrive and the fee, then settles once the source transaction confirms. Reaching a subnet adds one more hop handled by the same flow.</div></section>
+<tr><th scope="row">Custody</th><td>Self-custody — your keys throughout</td></tr></tbody></table></div></section>
+<main class="c48eeed" id="content" tabindex="-1">
+<section class="c3f2fb4"><h2 class="c479973">How an Avalanche Cross-Chain Bridge works</h2><div class="c0a0597"><strong>You lock or burn assets on the source chain and receive them on the destination.</strong> An Avalanche Cross-Chain Bridge routes your transfer between Ethereum and the C-Chain, shows the amount that will arrive and the fee, then settles once the source transaction confirms. Reaching a subnet adds one more hop handled by the same flow.</div></section>
 <section class="c3f2fb4"><h2 class="c479973">Fees and time on the Avalanche Cross-Chain Bridge</h2><div class="c0a0597">Cost is the source-chain gas plus any protocol fee; the C-Chain side is cheap because AVAX gas is low. Timing depends on Ethereum confirmations and load, usually minutes. The quote shows the net amount received so you can compare routes before committing.</div></section>
 <section class="c3f2fb4"><h2 class="c479973">What you can move with an Avalanche Cross-Chain Bridge</h2><div class="c0a0597">ETH, USDC, USDT, WBTC and other liquid assets move both ways and then work across Avalanche DeFi — DEXs, lending and subnet apps. Availability depends on supported routes at the time; the interface lists reachable assets and the expected output for each.</div></section>
 <section class="c3f2fb4"><h2 class="c479973">Is the Avalanche Cross-Chain Bridge safe?</h2><div class="c0a0597">Self-custody keeps your keys in your wallet. Confirm the destination token's contract address, the amount received and the exact approval you grant, prefer a limited approval, and keep a little AVAX for gas. A seed-phrase request is always fraud.</div></section>
 <section class="c3f2fb4"><h2 class="c479973">Native route vs third-party cross-chain bridges</h2><div class="c0a0597">Native routes move major assets directly; third-party bridges reach more chains and assets but add a contract and a fee. Judge every route by the <strong>net amount received</strong> after gas and fees, and prefer audited routes with deep liquidity.</div></section>
-    <details class="cc3d40c"><summary class="cc2fd87">Do I need AVAX for an Avalanche Cross-Chain Bridge?</summary><div class="c99953f">You pay source-chain gas to send, and you need a little AVAX on the C-Chain to move assets once they arrive.</div></details>
+<details class="cc3d40c"><summary class="cc2fd87">Do I need AVAX for an Avalanche Cross-Chain Bridge?</summary><div class="c99953f">You pay source-chain gas to send, and you need a little AVAX on the C-Chain to move assets once they arrive.</div></details>
 <details class="cc3d40c"><summary class="cc2fd87">How long does a cross-chain transfer to Avalanche take?</summary><div class="c99953f">Usually minutes, after your source transaction gets enough confirmations; busy periods take longer.</div></details>
 <details class="cc3d40c"><summary class="cc2fd87">Can I bridge back from Avalanche to Ethereum?</summary><div class="c99953f">Yes, the route works both ways; you pay C-Chain gas in AVAX to send and Ethereum gas to receive.</div></details>
 <details class="cc3d40c"><summary class="cc2fd87">Do I need an account?</summary><div class="c99953f">No. You connect a self-custody wallet and bridge on-chain, with no sign-up and no custody.</div></details>
 <details class="cc3d40c"><summary class="cc2fd87">What if a transfer stays pending?</summary><div class="c99953f">Pending transfers usually clear once the network is less busy; a reverted source transaction leaves your assets intact minus gas.</div></details>
-  </main>
-
-  <section class="c55bd5c"><h2>Sources</h2><ul class="cda0b71"><li><a class="ce56ea9" href="https://build.avax.network/docs" rel="nofollow noopener" target="_blank">Avalanche developer documentation</a></li>
+</main>
+<section class="c0d722c" id="sources" aria-labelledby="sources-title"><h2 class="cb17531" id="sources-title">Sources</h2><ul class="cda0b71"><li><a class="ce56ea9" href="https://build.avax.network/docs" rel="nofollow noopener" target="_blank">Avalanche developer documentation</a></li>
 <li><a class="ce56ea9" href="https://en.wikipedia.org/wiki/Avalanche_(blockchain_platform)" rel="nofollow noopener" target="_blank">Avalanche on Wikipedia</a></li>
 <li><a class="ce56ea9" href="https://snowtrace.io/" rel="nofollow noopener" target="_blank">Snowtrace C-Chain explorer</a></li></ul></section>
+<footer class="c09385b"><p>Updated Oct 09, 2026</p><a href="#key-facts">Back to key facts <span aria-hidden="true">↑</span></a></footer>
 </div>
-<hr class="c12bda4">
-<div class="caecbd1"><footer><span>Updated Oct 09, 2026</span><span>Self-custody · on-chain settlement · you hold your keys.</span></footer></div>
+<script>
+(() => {
+  const amount = document.getElementById('amount');
+  const net = document.getElementById('net');
+  const fee = document.getElementById('fee');
+  const time = document.getElementById('time');
+  const error = document.getElementById('amount-error');
+  const format = new Intl.NumberFormat('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  let timer;
+  function update() {
+    const raw = amount.value.trim();
+    const validFormat = /^(?:\d+(?:[.,]\d{1,2})?|[.,]\d{1,2})$/.test(raw);
+    const value = Number(raw.replace(',', '.'));
+    if (!validFormat || !Number.isFinite(value) || value < 1 || value > 1000000) {
+      amount.setAttribute('aria-invalid', 'true');
+      error.textContent = raw === '' ? 'Enter an amount to calculate your estimate.' : 'Enter a number from 1 to 1,000,000 with up to two decimal places.';
+      error.hidden = false;
+      net.textContent = '—';
+      fee.textContent = '—';
+      time.textContent = '—';
+      return;
+    }
+    amount.removeAttribute('aria-invalid');
+    error.hidden = true;
+    error.textContent = '';
+    const amountCents = Math.round(value * 100);
+    const feeCents = Math.round(50 + amountCents * 0.0025);
+    const minutes = 2 + Math.ceil(Math.log10(value));
+    net.textContent = format.format((amountCents - feeCents) / 100);
+    fee.textContent = format.format(feeCents / 100) + ' units';
+    time.textContent = minutes + '–' + (minutes + 3) + ' min';
+  }
+  amount.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(update, 180);
+  });
+  amount.addEventListener('change', () => {
+    clearTimeout(timer);
+    update();
+  });
+  update();
+})();
+</script>
 </body>
 </html>
