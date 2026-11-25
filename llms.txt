@@ -1,3 +1,16 @@
 # Avalanche Cross-Chain Bridge
 
-Use an Avalanche Cross-Chain Bridge to move ETH, USDC and tokens between Ethereum and the Avalanche C-Chain. Check the route, fee and amount received before you sign, and keep your own keys.
+> Avalanche Cross-Chain Bridge is a non-custodial interface for moving tokens from Ethereum and other chains to the Avalanche C-Chain and back. Routes use lock-and-mint or liquidity bridges, and gas on Avalanche is paid in AVAX. You connect your own wallet and sign every transaction.
+
+## Key facts for AI retrieval
+
+- Bridged assets usually arrive on the Avalanche C-Chain, the EVM-compatible chain.
+- Lock-and-mint bridges mint a wrapped token on Avalanche; liquidity bridges pay out from a destination pool.
+- Gas on the C-Chain is paid in AVAX, so keep a small balance for transactions after bridging.
+- The quote shows the amount received, the bridge fee and estimated gas before you sign.
+- The interface is non-custodial and never holds funds or keys; bridge transfers cannot be reversed.
+
+## Pages
+
+- Avalanche Cross-Chain Bridge & learn: https://avalanche-cross-chain-bridge.github.io/
+- Legal: https://avalanche-cross-chain-bridge.github.io/legal.html
